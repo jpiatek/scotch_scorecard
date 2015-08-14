@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @round.errors.any? %>
+  <% @round.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Round: <%= @round.course_name %>, <%= @round.created_at %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_round/<%= @round.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for course_name -->
+      <div class="form-group">
+        <label for="course_name" class="control-label">
+          Course name
+        </label>
+
+        <input type="text" id="course_name" name="course_name" placeholder="Course name" class="form-control" value="<%= @round.course_name %>">
+      </div>
+
+      <!-- Label and input for player_2 -->
+      <div class="form-group">
+        <label for="player_2" class="control-label">
+          Player 2
+        </label>
+
+        <input type="text" id="player_2" name="player_2" placeholder="Player 2" class="form-control" value="<%= @round.player_2 %>">
+      </div>
+
+      <!-- Label and input for player_3 -->
+      <div class="form-group">
+        <label for="player_3" class="control-label">
+          Player 3
+        </label>
+
+        <input type="text" id="player_3" name="player_3" placeholder="Player 3" class="form-control" value="<%= @round.player_3 %>">
+      </div>
+
+      <!-- Label and input for player_4 -->
+      <div class="form-group">
+        <label for="player_4" class="control-label">
+          Player 4
+        </label>
+
+        <input type="text" id="player_4" name="player_4" placeholder="Player 4" class="form-control" value="<%= @round.player_4 %>">
+      </div>
+
+      <!-- Label and input for played_on -->
+      <div class="form-group">
+        <label for="played_on" class="control-label">
+          Played on
+        </label>
+
+        <input type="text" id="played_on" name="played_on" placeholder="Played on" class="form-control" value="<%= @round.played_on %>">
+      </div>
+
+      <!-- Label and input for player_1 -->
+      <div class="form-group">
+        <label for="player_1" class="control-label">
+          Player 1
+        </label>
+
+        <input type="text" id="player_1" name="player_1" placeholder="Player 1" class="form-control" value="<%= @round.player_1 %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @round.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Round
+      </button>
+      or
+      <a href="/rounds/<%= @round.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
