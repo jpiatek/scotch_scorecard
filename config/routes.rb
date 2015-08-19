@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post "/create_round", :controller => "rounds", :action => "create"
 
   # READ
+  get "/", :controller => "rounds", :action => "index"
   get "/rounds", :controller => "rounds", :action => "index"
   get "/rounds/:id", :controller => "rounds", :action => "show"
 

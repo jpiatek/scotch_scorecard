@@ -28,6 +28,7 @@
       <dt>User</dt>
       <dd><%= @round.user_id %></dd>
 
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -41,5 +42,57 @@
         Delete
       </a>
     </div>
+
   </div>
 </div>
+
+<div class="page-header">
+  <h1>
+    Holes
+    <!-- <a href="/holes/new" class="btn btn-lg btn-success">New Hole</a> -->
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+<!--         <th>Round</th>
+        <th>Hole ID</th> -->
+        <th>Number</th>
+        <th>Par</th>
+        <th><%= @round.player_1%></th>
+        <th><%= @round.player_2%></th>
+        <th><%= @round.player_3%></th>
+        <th><%= @round.player_4%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th>Actions</th>
+      </tr>
+
+
+
+      <% @round.holes.each do |hole| %>
+      <tr>
+<!--         <td><%= hole.round_id %></td>
+        <td><%= hole.id %></td> -->
+        <td><%= hole.number %></td>
+        <td><%= hole.par %></td>
+        <td><%= hole.p1_score %></td>
+        <td><%= hole.p2_score %></td>
+        <td><%= hole.p3_score %></td>
+        <td><%= hole.p4_score %></td>
+        <td><%= hole.roll %></td>
+        <td><%= hole.ctp_player %></td>
+        <td>
+
+          <a href="/holes/<%= hole.id %>/edit" class="btn btn-primary">Edit</a>
+
+        </td>
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>
+

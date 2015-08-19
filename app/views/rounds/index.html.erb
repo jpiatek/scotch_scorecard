@@ -16,7 +16,7 @@
         <th>Player 2</th>
         <th>Player 3</th>
         <th>Player 4</th>
-        <th>Actions</th>
+         <th>Actions</th>
       </tr>
 
       <% @rounds.each do |round| %>
@@ -29,8 +29,9 @@
         <td><%= round.player_3 %></td>
         <td><%= round.player_4 %></td>
 
+
         <td>
-          <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show Match</a>
+          <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show Round</a>
           <a href="/rounds/<%= round.id %>/edit" class="btn btn-warning">Edit Players</a>
           <a href="/delete_round/<%= round.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>

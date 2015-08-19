@@ -20,11 +20,8 @@
 
       <!-- Label and input for round_id -->
       <div class="form-group">
-        <label for="round_id" class="control-label">
-          Round
-        </label>
-        <input type="text" id="round_id" name="round_id" placeholder="Round" class="form-control" value="<%= @hole.round_id %>">
-      </div>
+         <input type="hidden" name="round_id" value="<%= @hole.round_id %>">
+         </div>
 
 
      <!-- Label and input for number -->

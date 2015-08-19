@@ -9,14 +9,23 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Hole #<%= @hole.id %></h3>
+  <h3>Edit Hole #<%= @hole.number %></h3>
 </div>
+
 
 <div class="row">
   <div class="col-md-12">
     <form action="/update_hole/<%= @hole.id %>" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+
+      <!-- Label and input for round_id -->
+          <div class="form-group">
+         <input type="hidden" name="round_id" value="<%= @hole.round_id %>">
+         </div>
 
       <!-- Label and input for par -->
       <div class="form-group">
@@ -27,25 +36,65 @@
         <input type="text" id="par" name="par" placeholder="Par" class="form-control" value="<%= @hole.par %>">
       </div>
 
-      <!-- Label and input for p2_score -->
+
+
+      <!-- Label and input for number -->
+
+          <div class="form-group">
+         <input type="hidden" name="number" value="<%= @hole.number %>">
+         </div>
+
+
+
+
+      <!-- Label and input for p1_score -->
       <div class="form-group">
-        <label for="p2_score" class="control-label">
-          P2 score
+        <label for="p1_score" class="control-label">
+          <%=@hole.round.player_1%>
         </label>
 
-        <input type="text" id="p2_score" name="p2_score" placeholder="P2 score" class="form-control" value="<%= @hole.p2_score %>">
+        <input type="text" id="p1_score" name="p1_score" placeholder="<%=@hole.round.player_1%>'s score" class="form-control" value="<%= @hole.p1_score %>">
+      </div>
+
+
+            <!-- Label and input for p2_score -->
+      <div class="form-group">
+        <label for="p2_score" class="control-label">
+          <%=@hole.round.player_2%>
+        </label>
+
+        <input type="text" id="p2_score" name="p2_score" placeholder="<%=@hole.round.player_2%>'s score" class="form-control" value="<%= @hole.p2_score %>">
       </div>
 
       <!-- Label and input for p3_score -->
       <div class="form-group">
         <label for="p3_score" class="control-label">
-          P3 score
+          <%=@hole.round.player_3%>
         </label>
 
-        <input type="text" id="p3_score" name="p3_score" placeholder="P3 score" class="form-control" value="<%= @hole.p3_score %>">
+        <input type="text" id="p3_score" name="p3_score" placeholder="<%=@hole.round.player_3%>'s score" class="form-control" value="<%= @hole.p3_score %>">
       </div>
 
-      <!-- Label and input for roll -->
+
+      <!-- Label and input for p4_score -->
+      <div class="form-group">
+        <label for="p4_score" class="control-label">
+          <%=@hole.round.player_4%>
+        </label>
+
+        <input type="text" id="p4_score" name="p4_score" placeholder="<%=@hole.round.player_4%>'s score" class="form-control" value="<%= @hole.p4_score %>">
+      </div>
+
+      <!-- Label and input for ctp_player -->
+      <div class="form-group">
+        <label for="ctp_player" class="control-label">
+          Who got prox?
+        </label>
+
+        <input type="text" id="ctp_player" name="ctp_player" placeholder="Ctp player" class="form-control" value="<%= @hole.ctp_player %>">
+      </div>
+
+            <!-- Label and input for roll -->
       <div class="checkbox">
         <label for="roll">
           <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @hole.roll %>>
@@ -53,50 +102,6 @@
         </label>
       </div>
 
-      <!-- Label and input for round_id -->
-      <div class="form-group">
-        <label for="round_id" class="control-label">
-          Round
-        </label>
-
-        <input type="text" id="round_id" name="round_id" placeholder="Round" class="form-control" value="<%= @hole.round_id %>">
-      </div>
-
-      <!-- Label and input for number -->
-      <div class="form-group">
-        <label for="number" class="control-label">
-          Number
-        </label>
-
-        <input type="text" id="number" name="number" placeholder="Number" class="form-control" value="<%= @hole.number %>">
-      </div>
-
-      <!-- Label and input for p1_score -->
-      <div class="form-group">
-        <label for="p1_score" class="control-label">
-          P1 score
-        </label>
-
-        <input type="text" id="p1_score" name="p1_score" placeholder="P1 score" class="form-control" value="<%= @hole.p1_score %>">
-      </div>
-
-      <!-- Label and input for p4_score -->
-      <div class="form-group">
-        <label for="p4_score" class="control-label">
-          P4 score
-        </label>
-
-        <input type="text" id="p4_score" name="p4_score" placeholder="P4 score" class="form-control" value="<%= @hole.p4_score %>">
-      </div>
-
-      <!-- Label and input for ctp_player -->
-      <div class="form-group">
-        <label for="ctp_player" class="control-label">
-          Ctp player
-        </label>
-
-        <input type="text" id="ctp_player" name="ctp_player" placeholder="Ctp player" class="form-control" value="<%= @hole.ctp_player %>">
-      </div>
 
       <button class="btn btn-warning">
         Update Hole
