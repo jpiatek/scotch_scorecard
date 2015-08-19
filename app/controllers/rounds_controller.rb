@@ -6,6 +6,7 @@ class RoundsController < ApplicationController
   def show
     @round = Round.find(params[:id])
     @holes = Hole.all
+    @front_nine_player = 1
 
   end
 
