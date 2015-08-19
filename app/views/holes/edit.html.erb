@@ -12,7 +12,7 @@
   <h3>Edit Hole #<%= @hole.number %></h3>
 </div>
 
-
+     <table>
 <div class="row">
   <div class="col-md-12">
     <form action="/update_hole/<%= @hole.id %>" method="post">
@@ -20,8 +20,7 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
 
-
-
+        <tr>
       <!-- Label and input for round_id -->
           <div class="form-group">
          <input type="hidden" name="round_id" value="<%= @hole.round_id %>">
@@ -101,7 +100,8 @@
           Roll
         </label>
       </div>
-
+      </tr>
+</table>
 
       <button class="btn btn-warning">
         Update Hole

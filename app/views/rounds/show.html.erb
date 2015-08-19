@@ -1,56 +1,61 @@
 <div class="page-header">
-  <h3>Round: <%= @round.course_name %>, <%= @round.played_on %></h3>
-</div>
+  <h2>Match Score
+    </h2>
+  <h3><%= @round.course_name %>, <%= @round.played_on %></h3>
+    </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Course name</dt>
-      <dd><%= @round.course_name %></dd>
 
-      <dt>Played on</dt>
-      <dd><%= @round.played_on %></dd>
-
-
-      <dt>Player 1</dt>
-      <dd><%= @round.player_1 %></dd>
-
-      <dt>Player 2</dt>
-      <dd><%= @round.player_2 %></dd>
-
-      <dt>Player 3</dt>
-      <dd><%= @round.player_3 %></dd>
-
-      <dt>Player 4</dt>
-      <dd><%= @round.player_4 %></dd>
+    <table>
+      <tr>
+      <th>Player</th>
+      <th>Front</th>
+      <th>Back</th>
+      <th>Total</th>
+      </tr>
 
 
-      <dt>User</dt>
-      <dd><%= @round.user_id %></dd>
+      <tr>
+      <td><%= @round.player_1 %></td>
+      <td>front 9 score</td>
+      <td>back 9 score</td>
+      <td>Total</td>
+      </tr>
 
+      <tr>
+      <td><%= @round.player_2 %></td>
+      <td>front 9 score</td>
+      <td>back 9 score</td>
+      <td>Total</td>
+      </tr>
+
+      <tr>
+      <td><%= @round.player_3 %></td>
+      <td>front 9 score</td>
+      <td>back 9 score</td>
+      <td>Total</td>
+      </tr>
+
+      <tr>
+      <td><%= @round.player_4 %></td>
+      <td>front 9 score</td>
+      <td>back 9 score</td>
+      <td>Total</td>
+      </tr>
+      </table>
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/rounds" class="btn btn-primary">
-        Back
+      <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
+
+        Holes
       </a>
-      <a href="/rounds/<%= @round.id %>/edit" class="btn btn-warning">
-        Edit Players
-      </a>
-      <a href="/delete_round/<%= @round.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+      </div>
 
   </div>
-</div>
-
-<div class="page-header">
-  <h1>
-    Holes
-    <!-- <a href="/holes/new" class="btn btn-lg btn-success">New Hole</a> -->
-  </h1>
 </div>
 
 <div class="row">
@@ -60,7 +65,9 @@
 <!--         <th>Round</th>
         <th>Hole ID</th> -->
         <th>Number</th>
-        <th>Par</th>
+        <th><a href="/rounds" class="btn btn-danger">
+        Par
+      </a></th>
         <th><%= @round.player_1%></th>
         <th><%= @round.player_2%></th>
         <th><%= @round.player_3%></th>
