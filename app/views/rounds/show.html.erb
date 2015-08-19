@@ -50,7 +50,6 @@
 
     <div class="btn-group btn-group-justified">
       <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
-
         Holes
       </a>
       </div>
@@ -65,7 +64,7 @@
 <!--         <th>Round</th>
         <th>Hole ID</th> -->
         <th>Number</th>
-        <th><a href="/rounds" class="btn btn-danger">
+        <th><a href="/rounds/<%= @round.id %>/edit" class="btn btn-danger">
         Par
       </a></th>
         <th><%= @round.player_1%></th>

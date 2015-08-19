@@ -27,6 +27,24 @@
         <input type="text" id="course_name" name="course_name" placeholder="Course name" class="form-control" value="<%= @round.course_name %>">
       </div>
 
+            <!-- Label and input for played_on -->
+      <div class="form-group">
+        <label for="played_on" class="control-label">
+          Played on
+        </label>
+
+        <input type="text" id="played_on" name="played_on" placeholder="Played on" class="form-control" value="<%= @round.played_on %>">
+      </div>
+
+      <!-- Label and input for player_1 -->
+      <div class="form-group">
+        <label for="player_1" class="control-label">
+          Player 1
+        </label>
+
+  <input type="text" id="player_1" name="player_1" placeholder="Player 1" class="form-control" value="<%= @round.player_1 %>">
+      </div>
+
       <!-- Label and input for player_2 -->
       <div class="form-group">
         <label for="player_2" class="control-label">
@@ -54,23 +72,6 @@
         <input type="text" id="player_4" name="player_4" placeholder="Player 4" class="form-control" value="<%= @round.player_4 %>">
       </div>
 
-      <!-- Label and input for played_on -->
-      <div class="form-group">
-        <label for="played_on" class="control-label">
-          Played on
-        </label>
-
-        <input type="text" id="played_on" name="played_on" placeholder="Played on" class="form-control" value="<%= @round.played_on %>">
-      </div>
-
-      <!-- Label and input for player_1 -->
-      <div class="form-group">
-        <label for="player_1" class="control-label">
-          Player 1
-        </label>
-
-        <input type="text" id="player_1" name="player_1" placeholder="Player 1" class="form-control" value="<%= @round.player_1 %>">
-      </div>
 
       <!-- Label and input for user_id -->
       <div class="form-group">
@@ -82,7 +83,7 @@
       </div>
 
       <button class="btn btn-warning">
-        Update Round
+      Update Round
       </button>
       or
       <a href="/rounds/<%= @round.id %>">Cancel</a>
