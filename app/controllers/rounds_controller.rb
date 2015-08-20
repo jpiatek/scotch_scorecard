@@ -6,7 +6,12 @@ class RoundsController < ApplicationController
   def show
     @round = Round.find(params[:id])
     @holes = Hole.all
-    @front_nine_player = 1
+
+    @h1p1 = @round.holes.where(:number => 1)
+    @h1p2 = @round.holes.where(:number => 1)
+    @h1p3 = @round.holes.where(:number => 1)
+    @h1p4 = @round.holes.where(:number => 1)
+
 
   end
 

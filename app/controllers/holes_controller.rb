@@ -36,6 +36,9 @@ class HolesController < ApplicationController
 
   def edit
     @hole = Hole.find(params[:id])
+    @holes = Hole.where(:round_id =>@hole.round_id)
+    @round = Round.where(:round_id =>@hole.round_id)
+
   end
 
   def update
@@ -51,7 +54,7 @@ class HolesController < ApplicationController
     @hole.roll = params[:roll]
 
     if @hole.save
-      redirect_to "/rounds", :notice => "Hole updated successfully."
+      redirect_to :back, :notice => "Hole updated successfully."
     else
       render 'edit'
     end

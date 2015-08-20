@@ -19,7 +19,7 @@
 
       <div class="row">
       <div class="col-md-2"><%= @round.player_1 %></div>
-      <div class="col-md-2">front 9 score</div>
+      <div class="col-md-2"><%=@h1p1%></div>
       <div class="col-md-2">back 9 score</div>
       <div class="col-md-2">Total</div>
       <div class="col-md-2">Through</div>
@@ -88,7 +88,6 @@
       </tr>
 
 
-
       <% @round.holes.each do |hole| %>
       <tr>
 <!--         <td><%= hole.round_id %></td>
@@ -102,24 +101,16 @@
         <td><%= hole.roll %></td>
         <td><%= hole.ctp_player %></td>
         <td>
+     <a href="/holes/<%= hole.id %>/edit" class="btn btn-primary">Edit</a>
 
-          <a href="/holes/<%= hole.id %>/edit" class="btn btn-primary">Edit</a>
+        <%end%>
+
+
 
         </td>
       </tr>
-      <% end %>
+
 
     </table>
   </div>
 </div>
-
-
-<table>
-  <div class="row">
-    <div class="col-md-1">
-    hello
-    </div>
-       <div class="col-md-1">
-    you
-    </div>
-  </div>
