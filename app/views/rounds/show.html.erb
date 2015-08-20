@@ -8,45 +8,54 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
 
-    <table>
-      <tr>
-      <th>Player</th>
-      <th>Front</th>
-      <th>Back</th>
-      <th>Total</th>
-      <th>Rel Par</th>
+      <div class="row">
+      <div class="col-md-2">Player</div>
+      <div class="col-md-2">Front</div>
+      <div class="col-md-2">Back</div>
+      <div class="col-md-2">Total</div>
+      <div class="col-md-2">Through</div>
+      <div class="col-md-2">Rel Par</div>
+      </div>
 
-      </tr>
+      <div class="row">
+      <div class="col-md-2"><%= @round.player_1 %></div>
+      <div class="col-md-2">front 9 score</div>
+      <div class="col-md-2">back 9 score</div>
+      <div class="col-md-2">Total</div>
+      <div class="col-md-2">Through</div>
+      <div class="col-md-2">-1</div>
+      </div>
 
+      <div class="row">
+      <div class="col-md-2"><%= @round.player_2 %></div>
+      <div class="col-md-2">front 9 score</div>
+      <div class="col-md-2">back 9 score</div>
+      <div class="col-md-2">Total</div>
+      <div class="col-md-2">Through</div>
+      <div class="col-md-2">-1</div>
+      </div>
 
-      <tr>
-      <td><%= @round.player_1 %></td>
-      <td>front 9 score</td>
-      <td>back 9 score</td>
-      <td>Total</td>
-      </tr>
+      <div class="row">
+      <div class="col-md-2"><%= @round.player_3 %></div>
+      <div class="col-md-2">front 9 score</div>
+      <div class="col-md-2">back 9 score</div>
+      <div class="col-md-2">Total</div>
+      <div class="col-md-2">Through</div>
+      <div class="col-md-2">-1</div>
+      </div>
 
-      <tr>
-      <td><%= @round.player_2 %></td>
-      <td>front 9 score</td>
-      <td>back 9 score</td>
-      <td>Total</td>
-      </tr>
+      <div class="row">
+      <div class="col-md-2"><%= @round.player_4 %></div>
+      <div class="col-md-2">front 9 score</div>
+      <div class="col-md-2">back 9 score</div>
+      <div class="col-md-2">Total</div>
+      <div class="col-md-2">Through</div>
+      <div class="col-md-2">-1</div>
+      </div>
 
-      <tr>
-      <td><%= @round.player_3 %></td>
-      <td>front 9 score</td>
-      <td>back 9 score</td>
-      <td>Total</td>
-      </tr>
+      <div class="row">
+      </div>
 
-      <tr>
-      <td><%= @round.player_4 %></td>
-      <td>front 9 score</td>
-      <td>back 9 score</td>
-      <td>Total</td>
-      </tr>
-      </table>
 
     </dl>
 
@@ -104,3 +113,13 @@
   </div>
 </div>
 
+
+<table>
+  <div class="row">
+    <div class="col-md-1">
+    hello
+    </div>
+       <div class="col-md-1">
+    you
+    </div>
+  </div>

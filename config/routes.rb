@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Routes for the Round resource:
   # CREATE
   get "/rounds/new", :controller => "rounds", :action => "new"
   post "/create_round", :controller => "rounds", :action => "create"
 
   # READ
-  get "/", :controller => "rounds", :action => "index"
+  root 'rounds#index'
   get "/rounds", :controller => "rounds", :action => "index"
   get "/rounds/:id", :controller => "rounds", :action => "show"
 
@@ -32,7 +33,11 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_hole/:id", :controller => "holes", :action => "destroy"
+
   #------------------------------
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
