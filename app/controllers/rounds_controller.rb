@@ -608,7 +608,7 @@ class RoundsController < ApplicationController
     # @hole18_points
 
     if
-        @match_score>0
+        @match_score > 0
         @standing="up"
     elsif
         @match_score < 0
