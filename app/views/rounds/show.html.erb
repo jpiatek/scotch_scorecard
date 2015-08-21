@@ -1,8 +1,10 @@
 <div class="page-header">
-  <h2>Match Score
+  <h2><%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%= @match_score %>.
     </h2>
-  <h3><%= @round.course_name %>, <%= @round.played_on %></h3>
+  <h5><%= @round.course_name %>, <%= @round.played_on %></h5>
     </div>
+
+
 
 <div class="row">
   <div class="col-md-12">
@@ -109,3 +111,23 @@
     </table>
   </div>
 </div>
+
+<%= @hole1_points %>
+<%= @hole1_team %>
+<%= @hole1_man %>
+<%= @hole1_prox %>
+
+<%= @hole2_points %>
+<%= @hole2_team %>
+<%= @hole2_man %>
+<%= @hole2_prox %>
+
+<%= @hole3_points %>
+<%= @hole3_team %>
+<%= @hole3_man %>
+<%= @hole3_prox %>
+
+<%= @hole4_points %>
+<%= @hole4_team %>
+<%= @hole4_man %>
+<%= @hole4_prox %>

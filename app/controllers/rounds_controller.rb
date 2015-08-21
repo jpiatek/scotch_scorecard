@@ -7,7 +7,6 @@ class RoundsController < ApplicationController
     @round = Round.find(params[:id])
     @holes = Hole.all
 
-
 # Player 1
 
     @p1h1= Hole.find_by(:number => 1).p1_score
@@ -89,7 +88,6 @@ class RoundsController < ApplicationController
 
     @p3_total=@p3h1+@p3h2+@p3h3+@p3h4+@p3h5+@p3h6+@p3h7+@p3h8+@p3h9+@p3h10+ @p3h11+ @p3h12+ @p3h13+ @p3h14+ @p3h15+ @p3h16+ @p3h17+ @p3h18
 
-
 # Player 4
 
     @p4h1= Hole.find_by(:number => 1).p4_score
@@ -140,23 +138,489 @@ class RoundsController < ApplicationController
 
     @course_par= @parh1+@parh2+@parh3+@parh4+@parh5+@parh6+@parh7+@parh8+@parh9+@parh10+ @parh11+ @parh12+ @parh13+ @parh14+ @parh15+ @parh16+ @parh17+ @parh18
 
+# Points logic
+
+# hole1
+    if
+        @p1h1+@p2h1<@p3h1+@p4h1
+        @hole1_team=2
+    elsif
+        @p1h1+@p2h1>@p3h1+@p4h1
+        @hole1_team=-2
+    else
+        @hole1_team=0
+    end
 
     if
-
+        @p1h1 || @p2h1 < @p3h1 && @p4h1
+        @hole1_man=2
+    elsif
+        @p1h1 || @p2h1 > @p3h1 && @p4h1
+        @hole1_man=-2
     else
+        @hole1_man=0
+    end
 
+    # if
+    #     Hole.find_by(:number => 1).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 1).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole1_prox = 0
+
+    @hole1_points=@hole1_team+@hole1_man+@hole1_prox
+
+    if
+        @hole1_points == 5
+        @hole1_points = 10
+    else
+        @hole1_points = @hole1_points
+    end
+
+    if
+         Hole.find_by(:number => 1).roll == true
+         @hole1_points = @hole1_points*2
+    else
+        @hole1_points = @hole1_points
+    end
+
+# hole2
+
+    if
+        @p1h2+@p2h2<@p3h2+@p4h2
+        @hole2_team=2
+    elsif
+        @p1h2+@p2h2>@p3h2+@p4h2
+        @hole2_team=-2
+    else
+        @hole2_team=0
+    end
+
+    if
+        @p1h2 || @p2h2 < @p3h2 && @p4h2
+        @hole2_man=2
+    elsif
+        @p1h2 || @p2h2 > @p3h2 && @p4h2
+        @hole2_man=-2
+    else
+        @hole2_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 2).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 2).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole2_prox = 0
+
+    @hole2_points=@hole2_team+@hole2_man+@hole2_prox
+
+    if
+        @hole2_points == 5
+        @hole2_points = 10
+    else
+        @hole2_points = @hole2_points
+    end
+
+    if
+         Hole.find_by(:number => 2).roll == true
+         @hole2_points = @hole2_points*2
+    else
+        @hole2_points = @hole2_points
+    end
+
+
+# hole3
+
+    if
+        @p1h3+@p2h3<@p3h3+@p4h3
+        @hole3_team=2
+    elsif
+        @p1h3+@p2h3>@p3h3+@p4h3
+        @hole3_team=-2
+    else
+        @hole3_team=0
+    end
+
+    if
+        @p1h3 || @p2h3 < @p3h3 && @p4h3
+        @hole3_man=2
+    elsif
+        @p1h3 || @p2h3 > @p3h3 && @p4h3
+        @hole3_man=-2
+    else
+        @hole3_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 3).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 3).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole3_prox = 0
+
+    @hole3_points=@hole3_team+@hole3_man+@hole3_prox
+
+    if
+        @hole3_points == 5
+        @hole3_points = 10
+    else
+        @hole3_points = @hole3_points
+    end
+
+    if
+         Hole.find_by(:number => 3).roll == true
+         @hole3_points = @hole3_points*2
+    else
+        @hole3_points = @hole3_points
+    end
+
+# hole4
+
+    if
+        @p1h4+@p2h4<@p3h4+@p4h4
+        @hole4_team=2
+    elsif
+        @p1h4+@p2h4>@p3h4+@p4h4
+        @hole4_team=-2
+    else
+        @hole4_team=0
+    end
+
+    if
+        @p1h4 || @p2h4 < @p3h4 && @p4h4
+        @hole4_man=2
+    elsif
+        @p1h4 || @p2h4 > @p3h4 && @p4h4
+        @hole4_man=-2
+    else
+        @hole4_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 4).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 4).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole4_prox = 0
+
+    @hole4_points=@hole4_team+@hole4_man+@hole4_prox
+
+    if
+        @hole4_points == 5
+        @hole4_points = 10
+    else
+        @hole4_points = @hole4_points
+    end
+
+    if
+         Hole.find_by(:number => 4).roll == true
+         @hole4_points = @hole4_points*2
+    else
+        @hole4_points = @hole4_points
+    end
+
+# hole5
+
+    if
+        @p1h5+@p2h5<@p3h5+@p4h5
+        @hole5_team=2
+    elsif
+        @p1h5+@p2h5>@p3h5+@p4h5
+        @hole5_team=-2
+    else
+        @hole5_team=0
+    end
+
+    if
+        @p1h5 || @p2h5 < @p3h5 && @p4h5
+        @hole5_man=2
+    elsif
+        @p1h5 || @p2h5 > @p3h5 && @p4h5
+        @hole5_man=-2
+    else
+        @hole5_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 5).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 5).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole5_prox = 0
+
+    @hole5_points=@hole5_team+@hole5_man+@hole5_prox
+
+    if
+        @hole5_points == 5
+        @hole5_points = 10
+    else
+        @hole5_points = @hole5_points
+    end
+
+    if
+         Hole.find_by(:number => 5).roll == true
+         @hole5_points = @hole5_points*2
+    else
+        @hole5_points = @hole5_points
+    end
+
+
+# hole6
+
+    if
+        @p1h6+@p2h6<@p3h6+@p4h6
+        @hole6_team=2
+    elsif
+        @p1h6+@p2h6>@p3h6+@p4h6
+        @hole6_team=-2
+    else
+        @hole6_team=0
+    end
+
+    if
+        @p1h6 || @p2h6 < @p3h6 && @p4h6
+        @hole6_man=2
+    elsif
+        @p1h6 || @p2h6 > @p3h6 && @p4h6
+        @hole6_man=-2
+    else
+        @hole6_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 6).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number => 6).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole6_prox = 0
+
+    @hole6_points=@hole6_team+@hole6_man+@hole6_prox
+
+    if
+        @hole6_points == 5
+        @hole6_points = 10
+    else
+        @hole6_points = @hole6_points
+    end
+
+    if
+         Hole.find_by(:number => 6).roll == true
+         @hole6_points = @hole6_points*2
+    else
+        @hole6_points = @hole6_points
+    end
+
+
+# hole7
+
+    if
+        @p1h7+@p2h7<@p3h7+@p4h7
+        @hole7_team=2
+    elsif
+        @p1h7+@p2h7>@p3h7+@p4h7
+        @hole7_team=-2
+    else
+        @hole7_team=0
+    end
+
+    if
+        @p1h7 || @p2h7 < @p3h7 && @p4h7
+        @hole7_man=2
+    elsif
+        @p1h7 || @p2h7 > @p3h7 && @p4h7
+        @hole7_man=-2
+    else
+        @hole7_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 7).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number =>  7).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole7_prox = 0
+
+    @hole7_points=@hole7_team+@hole7_man+@hole7_prox
+
+    if
+        @hole7_points == 5
+        @hole7_points = 10
+    else
+        @hole7_points = @hole7_points
+    end
+    if
+         Hole.find_by(:number => 7).roll == true
+         @hole7_points = @hole7_points*2
+    else
+        @hole7_points = @hole7_points
     end
 
 
 
+# hole8
+
+    if
+        @p1h8+@p2h8<@p3h8+@p4h8
+        @hole8_team=2
+    elsif
+        @p1h8+@p2h8>@p3h8+@p4h8
+        @hole8_team=-2
+    else
+        @hole8_team=0
+    end
+
+   if
+        @p1h8 || @p2h8 < @p3h8 && @p4h8
+        @hole8_man=2
+    elsif
+        @p1h8 || @p2h8 > @p3h8 && @p4h8
+        @hole8_man=-2
+    else
+        @hole8_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 8).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number =>  8).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole8_prox = 0
+
+    @hole8_points=@hole8_team+@hole8_man+@hole8_prox
+
+    if
+        @hole8_points == 5
+        @hole8_points = 10
+    else
+        @hole8_points = @hole8_points
+    end
+    if
+         Hole.find_by(:number => 8).roll == true
+         @hole8_points = @hole8_points*2
+    else
+        @hole8_points = @hole8_points
+    end
 
 
 
+# hole9
 
+    if
+        @p1h9+@p2h9<@p3h9+@p4h9
+        @hole9_team=2
+    elsif
+        @p1h9+@p2h9>@p3h9+@p4h9
+        @hole9_team=-2
+    else
+        @hole9_team=0
+    end
+
+   if
+        @p1h9 || @p2h9 < @p3h9 && @p4h9
+        @hole9_man=2
+    elsif
+        @p1h9 || @p2h9 > @p3h9 && @p4h9
+        @hole9_man=-2
+    else
+        @hole9_man=0
+    end
+
+    # if
+    #     Hole.find_by(:number => 9).ctp_player == @round.player_1 || @round.player_2
+    #     @hole1_prox=1
+    # elsif
+    #     Hole.find_by(:number =>  9).ctp_player == @round.player_3 || @round.player_4
+    #     @hole1_prox=-1
+    # else
+    #     @hole1_prox = 0
+    # end
+    @hole9_prox = 0
+
+    @hole9_points=@hole9_team+@hole9_man+@hole9_prox
+
+    if
+        @hole9_points == 5
+        @hole9_points = 10
+    else
+        @hole9_points = @hole9_points
+    end
+    if
+         Hole.find_by(:number => 9).roll == true
+         @hole9_points = @hole9_points*2
+    else
+        @hole9_points = @hole9_points
+    end
+
+
+
+    @match_score =
+
+    @hole1_points+
+    @hole2_points+
+    @hole3_points+
+    @hole4_points+
+    @hole5_points+
+    @hole6_points+
+    @hole7_points+
+    @hole8_points+
+    @hole9_points
+    # @hole10_points+
+    # @hole11_points+
+    # @hole12_points+
+    # @hole13_points+
+    # @hole14_points+
+    # @hole15_points+
+    # @hole16_points+
+    # @hole17_points+
+    # @hole18_points
+
+    if
+        @match_score>0
+        @standing="up"
+    elsif
+        @match_score < 0
+        @standing="down"
+    else
+        @standing="tied"
+    end
 
 
 
 end
+
 
   def new
     @round = Round.new
@@ -269,7 +733,6 @@ end
     else
       render '/holes'
     end
-  end
 
   def edit
     @round = Round.find(params[:id])
@@ -299,6 +762,6 @@ end
 
     redirect_to "/rounds", :notice => "Round deleted."
   end
-
+end
 
 end
