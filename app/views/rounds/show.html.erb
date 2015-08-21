@@ -9,48 +9,43 @@
     <dl class="dl-horizontal">
 
       <div class="row">
-      <div class="col-md-2">Player</div>
-      <div class="col-md-2">Front</div>
-      <div class="col-md-2">Back</div>
-      <div class="col-md-2">Total</div>
-      <div class="col-md-2">Through</div>
-      <div class="col-md-2">Rel Par</div>
+      <div class="col-md-2" >Player</div>
+      <div class="col-md-2" align="center">Front</div>
+      <div class="col-md-2" align="center">Back</div>
+      <div class="col-md-2" align="center">Total</div>
+      <div class="col-md-2" align="right">Relative to Par</div>
       </div>
 
       <div class="row">
-      <div class="col-md-2"><%= @round.player_1 %></div>
-      <div class="col-md-2"><%=@h1p1%></div>
-      <div class="col-md-2">back 9 score</div>
-      <div class="col-md-2">Total</div>
-      <div class="col-md-2">Through</div>
-      <div class="col-md-2">-1</div>
+      <div class="col-md-2" ><%= @round.player_1 %></div>
+      <div class="col-md-2" align="center"><%=@p1_front%></div>
+      <div class="col-md-2" align="center"><%=@p1_back%></div>
+      <div class="col-md-2" align="center"><%=@p1_total%></div>
+      <div class="col-md-2" align="right"><%=@p1_total-@course_par%></div>
       </div>
 
       <div class="row">
       <div class="col-md-2"><%= @round.player_2 %></div>
-      <div class="col-md-2">front 9 score</div>
-      <div class="col-md-2">back 9 score</div>
-      <div class="col-md-2">Total</div>
-      <div class="col-md-2">Through</div>
-      <div class="col-md-2">-1</div>
+      <div class="col-md-2" align="center"><%=@p2_front%></div>
+      <div class="col-md-2" align="center"><%=@p2_back%></div>
+      <div class="col-md-2" align="center"><%=@p2_total%></div>
+      <div class="col-md-2" align="right"><%=@p2_total-@course_par%></div>
       </div>
 
       <div class="row">
       <div class="col-md-2"><%= @round.player_3 %></div>
-      <div class="col-md-2">front 9 score</div>
-      <div class="col-md-2">back 9 score</div>
-      <div class="col-md-2">Total</div>
-      <div class="col-md-2">Through</div>
-      <div class="col-md-2">-1</div>
+      <div class="col-md-2" align="center"><%=@p3_front%></div>
+      <div class="col-md-2" align="center"><%=@p3_back%></div>
+      <div class="col-md-2" align="center"><%=@p3_total%></div>
+      <div class="col-md-2" align="right"><%=@p3_total-@course_par%></div>
       </div>
 
       <div class="row">
       <div class="col-md-2"><%= @round.player_4 %></div>
-      <div class="col-md-2">front 9 score</div>
-      <div class="col-md-2">back 9 score</div>
-      <div class="col-md-2">Total</div>
-      <div class="col-md-2">Through</div>
-      <div class="col-md-2">-1</div>
+      <div class="col-md-2" align="center"><%=@p4_front%></div>
+      <div class="col-md-2" align="center"><%=@p4_back%></div>
+      <div class="col-md-2" align="center"><%=@p4_total%></div>
+      <div class="col-md-2" align="right"><%=@p4_total-@course_par%></div>
       </div>
 
       <div class="row">
@@ -72,8 +67,8 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-<!--         <th>Round</th>
-        <th>Hole ID</th> -->
+       <th>Round</th>
+        <th>Hole ID</th>
         <th>Number</th>
         <th><a href="/rounds/<%= @round.id %>/edit" class="btn btn-danger">
         Par
@@ -90,8 +85,8 @@
 
       <% @round.holes.each do |hole| %>
       <tr>
-<!--         <td><%= hole.round_id %></td>
-        <td><%= hole.id %></td> -->
+        <td><%= hole.round_id %></td>
+        <td><%= hole.id %></td>
         <td><%= hole.number %></td>
         <td><%= hole.par %></td>
         <td><%= hole.p1_score %></td>
