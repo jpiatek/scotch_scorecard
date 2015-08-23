@@ -1,4 +1,4 @@
-="page-header">
+<div class="page-header">
   <h2><%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%= @match_score %>.
 
     </h2>
@@ -6,65 +6,62 @@
     </div>
 
 
-
+<h3>Scores</h3>
 <div class="row">
   <div class="col-md-12">
-    <dl class="dl-horizontal">
+   <table class="table table-striped table-hover">
 
-      <div class="row">
-      <div class="col-md-2" >Player</div>
-      <div class="col-md-2" align="center">Front</div>
-      <div class="col-md-2" align="center">Back</div>
-      <div class="col-md-2" align="center">Total</div>
-      <div class="col-md-2" align="right">Relative to Par</div>
-      </div>
+      <tr>
+      <th>Player</th>
+      <th>Front</th>
+      <th>Back</th>
+      <th>Total</th>
+      </tr>
 
-      <div class="row">
-      <div class="col-md-2" ><%= @round.player_1 %></div>
-      <div class="col-md-2" align="center"><%=@p1_front%></div>
-      <div class="col-md-2" align="center"><%=@p1_back%></div>
-      <div class="col-md-2" align="center"><%=@p1_total%></div>
-      <div class="col-md-2" align="right"><%=@p1_total-@course_par%></div>
-      </div>
+      <tr>
+      <td><%= @round.player_1 %></td>
+      <td><%=@p1_front%></td>
+      <td><%=@p1_back%></td>
+      <td><%=@p1_total%></td>
+      </tr>
 
-      <div class="row">
-      <div class="col-md-2"><%= @round.player_2 %></div>
-      <div class="col-md-2" align="center"><%=@p2_front%></div>
-      <div class="col-md-2" align="center"><%=@p2_back%></div>
-      <div class="col-md-2" align="center"><%=@p2_total%></div>
-      <div class="col-md-2" align="right"><%=@p2_total-@course_par%></div>
-      </div>
+      <tr>
+      <td><%= @round.player_2 %></td>
+      <td><%=@p2_front%></td>
+      <td><%=@p2_back%></td>
+      <td><%=@p2_total%></td>
 
-      <div class="row">
-      <div class="col-md-2"><%= @round.player_3 %></div>
-      <div class="col-md-2" align="center"><%=@p3_front%></div>
-      <div class="col-md-2" align="center"><%=@p3_back%></div>
-      <div class="col-md-2" align="center"><%=@p3_total%></div>
-      <div class="col-md-2" align="right"><%=@p3_total-@course_par%></div>
-      </div>
+      </tr>
 
-      <div class="row">
-      <div class="col-md-2"><%= @round.player_4 %></div>
-      <div class="col-md-2" align="center"><%=@p4_front%></div>
-      <div class="col-md-2" align="center"><%=@p4_back%></div>
-      <div class="col-md-2" align="center"><%=@p4_total%></div>
-      <div class="col-md-2" align="right"><%=@p4_total-@course_par%></div>
-      </div>
+      <tr>
+      <td><%= @round.player_3 %></td>
+      <td><%=@p3_front%></td>
+      <td><%=@p3_back%></td>
+      <td><%=@p3_total%></td>
 
-      <div class="row">
-      </div>
+      </tr>
 
-
-    </dl>
+      <tr>
+      <td><%= @round.player_4 %></td>
+      <td><%=@p4_front%></td>
+      <td><%=@p4_back%></td>
+      <td><%=@p4_total%></td>
+      </tr>
+  </div>
+  </div>
+ </table>
 
     <div class="btn-group btn-group-justified">
       <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
-        Holes
+        Edit Players
+      </a>
+      </div>
+       <div class="btn-group btn-group-justified">
+        <a href="/holes/<%= @round.holes.find_by(:number => 1).id %>/edit" class="btn btn-primary">
+        Edit Holes
       </a>
       </div>
 
-  </div>
-</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -73,9 +70,7 @@
        <th>Round</th>
         <th>Hole ID</th>
         <th>Number</th>
-        <th><a href="/rounds/<%= @round.id %>/edit" class="btn btn-danger">
-        Par
-      </a></th>
+        <th>Par</th>
         <th><%= @round.player_1%></th>
         <th><%= @round.player_2%></th>
         <th><%= @round.player_3%></th>
@@ -91,15 +86,22 @@
         <td><%= hole.round_id %></td>
         <td><%= hole.id %></td>
         <td><%= hole.number %></td>
-        <td><%= hole.par %></td>
-        <td><%= hole.p1_score %></td>
-        <td><%= hole.p2_score %></td>
-        <td><%= hole.p3_score %></td>
-        <td><%= hole.p4_score %></td>
-        <td><%= hole.roll %></td>
+        <form action="/update_hole/<%= hole.id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p4_score %>"></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if hole.roll %>>
+        </label>
+     </div>
+      </td>
         <td><%= hole.ctp_player %></td>
         <td>
      <a href="/holes/<%= hole.id %>/edit" class="btn btn-primary">Edit</a>
+     </form>
 
         <%end%>
 
@@ -128,164 +130,164 @@
         <th>Total Points</th>
       </tr>
    <tr>
-        <th>1</th>
-        <th><%=@hole1_team%></th>
-        <th><%=@hole1_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole1_points%></th>
+        <td>1</td>
+        <td><%=@hole1_team%></td>
+        <td><%=@hole1_man%></td>
+        <td><%=@round.holes.find_by(:number => 1).roll%></td>
+        <td>Prox</td>
+        <td><%=@hole1_points%></td>
       </tr>
 
    <tr>
-        <th>2</th>
-        <th><%=@hole2_team%></th>
-        <th><%=@hole2_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole2_points%></th>
+        <td>2</td>
+        <td><%=@hole2_team%></td>
+        <td><%=@hole2_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole2_points%></td>
   </tr>
         <tr>
-        <th>3</th>
-        <th><%=@hole3_team%></th>
-        <th><%=@hole3_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole3_points%></th>
+        <td>3</td>
+        <td><%=@hole3_team%></td>
+        <td><%=@hole3_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole3_points%></td>
       </tr>
 
   <tr>
-        <th>4</th>
-        <th><%=@hole4_team%></th>
-        <th><%=@hole4_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole4_points%></th>
+        <td>4</td>
+        <td><%=@hole4_team%></td>
+        <td><%=@hole4_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole4_points%></td>
       </tr>
 
   <tr>
-        <th>5</th>
-        <th><%=@hole5_team%></th>
-        <th><%=@hole5_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole5_points%></th>
+        <td>5</td>
+        <td><%=@hole5_team%></td>
+        <td><%=@hole5_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole5_points%></td>
       </tr>
 
   <tr>
-        <th>6</th>
-        <th><%=@hole6_team%></th>
-        <th><%=@hole6_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole6_points%></th>
+        <td>6</td>
+        <td><%=@hole6_team%></td>
+        <td><%=@hole6_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole6_points%></td>
       </tr>
 
   <tr>
-        <th>7</th>
-        <th><%=@hole7_team%></th>
-        <th><%=@hole7_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole7_points%></th>
+        <td>7</td>
+        <td><%=@hole7_team%></td>
+        <td><%=@hole7_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole7_points%></td>
       </tr>
 
   <tr>
-        <th>8</th>
-        <th><%=@hole8_team%></th>
-        <th><%=@hole8_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole8_points%></th>
+        <td>8</td>
+        <td><%=@hole8_team%></td>
+        <td><%=@hole8_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole8_points%></td>
       </tr>
 
   <tr>
-        <th>9</th>
-        <th><%=@hole9_team%></th>
-        <th><%=@hole9_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole9_points%></th>
+        <td>9</td>
+        <td><%=@hole9_team%></td>
+        <td><%=@hole9_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole9_points%></td>
       </tr>
 
   <tr>
-        <th>10</th>
-        <th><%=@hole10_team%></th>
-        <th><%=@hole10_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole10_points%></th>
+        <td>10</td>
+        <td><%=@hole10_team%></td>
+        <td><%=@hole10_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole10_points%></td>
       </tr>
 
   <tr>
-        <th>11</th>
-        <th><%=@hole11_team%></th>
-        <th><%=@hole11_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole11_points%></th>
+        <td>11</td>
+        <td><%=@hole11_team%></td>
+        <td><%=@hole11_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole11_points%></td>
       </tr>
 
   <tr>
-        <th>12</th>
-        <th><%=@hole12_team%></th>
-        <th><%=@hole12_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole12_points%></th>
+        <td>12</td>
+        <td><%=@hole12_team%></td>
+        <td><%=@hole12_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole12_points%></td>
       </tr>
 
   <tr>
-        <th>13</th>
-        <th><%=@hole13_team%></th>
-        <th><%=@hole13_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole13_points%></th>
+        <td>13</td>
+        <td><%=@hole13_team%></td>
+        <td><%=@hole13_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole13_points%></td>
       </tr>
 
   <tr>
-        <th>14</th>
-        <th><%=@hole14_team%></th>
-        <th><%=@hole14_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole14_points%></th>
+        <td>14</td>
+        <td><%=@hole14_team%></td>
+        <td><%=@hole14_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole14_points%></td>
       </tr>
 
   <tr>
-        <th>15</th>
-        <th><%=@hole15_team%></th>
-        <th><%=@hole15_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole15_points%></th>
+        <td>15</td>
+        <td><%=@hole15_team%></td>
+        <td><%=@hole15_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole15_points%></td>
       </tr>
 
   <tr>
-        <th>16</th>
-        <th><%=@hole16_team%></th>
-        <th><%=@hole16_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole16_points%></th>
+        <td>16</td>
+        <td><%=@hole16_team%></td>
+        <td><%=@hole16_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole16_points%></td>
       </tr>
 
   <tr>
-        <th>17</th>
-        <th><%=@hole17_team%></th>
-        <th><%=@hole17_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole17_points%></th>
+        <td>17</td>
+        <td><%=@hole17_team%></td>
+        <td><%=@hole17_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole17_points%></td>
       </tr>
 
   <tr>
-        <th>18</th>
-        <th><%=@hole18_team%></th>
-        <th><%=@hole18_man%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th><%=@hole18_points%></th>
+        <td>18</td>
+        <td><%=@hole18_team%></td>
+        <td><%=@hole18_man%></td>
+        <td>Roll</td>
+        <td>Prox</td>
+        <td><%=@hole18_points%></td>
       </tr>
 
 
