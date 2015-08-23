@@ -1,5 +1,6 @@
-<div class="page-header">
+="page-header">
   <h2><%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%= @match_score %>.
+
     </h2>
   <h5><%= @round.course_name %>, <%= @round.played_on %></h5>
     </div>
@@ -112,22 +113,189 @@
   </div>
 </div>
 
-<%= @hole1_points %>
-<%= @hole1_team %>
-<%= @hole1_man %>
-<%= @hole1_prox %>
 
-<%= @hole2_points %>
-<%= @hole2_team %>
-<%= @hole2_man %>
-<%= @hole2_prox %>
 
-<%= @hole3_points %>
-<%= @hole3_team %>
-<%= @hole3_man %>
-<%= @hole3_prox %>
 
-<%= @hole4_points %>
-<%= @hole4_team %>
-<%= @hole4_man %>
-<%= @hole4_prox %>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Number</th>
+        <th>Low Team</th>
+        <th>Low Man</th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th>Total Points</th>
+      </tr>
+   <tr>
+        <th>1</th>
+        <th><%=@hole1_team%></th>
+        <th><%=@hole1_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole1_points%></th>
+      </tr>
+
+   <tr>
+        <th>2</th>
+        <th><%=@hole2_team%></th>
+        <th><%=@hole2_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole2_points%></th>
+  </tr>
+        <tr>
+        <th>3</th>
+        <th><%=@hole3_team%></th>
+        <th><%=@hole3_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole3_points%></th>
+      </tr>
+
+  <tr>
+        <th>4</th>
+        <th><%=@hole4_team%></th>
+        <th><%=@hole4_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole4_points%></th>
+      </tr>
+
+  <tr>
+        <th>5</th>
+        <th><%=@hole5_team%></th>
+        <th><%=@hole5_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole5_points%></th>
+      </tr>
+
+  <tr>
+        <th>6</th>
+        <th><%=@hole6_team%></th>
+        <th><%=@hole6_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole6_points%></th>
+      </tr>
+
+  <tr>
+        <th>7</th>
+        <th><%=@hole7_team%></th>
+        <th><%=@hole7_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole7_points%></th>
+      </tr>
+
+  <tr>
+        <th>8</th>
+        <th><%=@hole8_team%></th>
+        <th><%=@hole8_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole8_points%></th>
+      </tr>
+
+  <tr>
+        <th>9</th>
+        <th><%=@hole9_team%></th>
+        <th><%=@hole9_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole9_points%></th>
+      </tr>
+
+  <tr>
+        <th>10</th>
+        <th><%=@hole10_team%></th>
+        <th><%=@hole10_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole10_points%></th>
+      </tr>
+
+  <tr>
+        <th>11</th>
+        <th><%=@hole11_team%></th>
+        <th><%=@hole11_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole11_points%></th>
+      </tr>
+
+  <tr>
+        <th>12</th>
+        <th><%=@hole12_team%></th>
+        <th><%=@hole12_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole12_points%></th>
+      </tr>
+
+  <tr>
+        <th>13</th>
+        <th><%=@hole13_team%></th>
+        <th><%=@hole13_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole13_points%></th>
+      </tr>
+
+  <tr>
+        <th>14</th>
+        <th><%=@hole14_team%></th>
+        <th><%=@hole14_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole14_points%></th>
+      </tr>
+
+  <tr>
+        <th>15</th>
+        <th><%=@hole15_team%></th>
+        <th><%=@hole15_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole15_points%></th>
+      </tr>
+
+  <tr>
+        <th>16</th>
+        <th><%=@hole16_team%></th>
+        <th><%=@hole16_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole16_points%></th>
+      </tr>
+
+  <tr>
+        <th>17</th>
+        <th><%=@hole17_team%></th>
+        <th><%=@hole17_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole17_points%></th>
+      </tr>
+
+  <tr>
+        <th>18</th>
+        <th><%=@hole18_team%></th>
+        <th><%=@hole18_man%></th>
+        <th>Roll</th>
+        <th>Prox</th>
+        <th><%=@hole18_points%></th>
+      </tr>
+
+
+
+
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+</div>
+
