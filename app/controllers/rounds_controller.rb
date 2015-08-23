@@ -182,7 +182,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 1).roll == true
+         @round.holes.find_by(:number => 1).roll == true
          @hole1_points = @hole1_points*2
     else
         @hole1_points = @hole1_points
@@ -231,7 +231,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 2).roll == true
+         @round.holes.find_by(:number => 2).roll == true
          @hole2_points = @hole2_points*2
     else
         @hole2_points = @hole2_points
@@ -281,7 +281,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 3).roll == true
+         @round.holes.find_by(:number => 3).roll == true
          @hole3_points = @hole3_points*2
     else
         @hole3_points = @hole3_points
@@ -330,7 +330,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 4).roll == true
+         @round.holes.find_by(:number => 4).roll == true
          @hole4_points = @hole4_points*2
     else
         @hole4_points = @hole4_points
@@ -379,7 +379,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 5).roll == true
+         @round.holes.find_by(:number => 5).roll == true
          @hole5_points = @hole5_points*2
     else
         @hole5_points = @hole5_points
@@ -429,7 +429,7 @@ class RoundsController < ApplicationController
     end
 
     if
-         Hole.find_by(:number => 6).roll == true
+         @round.holes.find_by(:number => 6).roll == true
          @hole6_points = @hole6_points*2
     else
         @hole6_points = @hole6_points
@@ -479,7 +479,7 @@ class RoundsController < ApplicationController
         @hole7_points = @hole7_points
     end
     if
-         Hole.find_by(:number => 7).roll == true
+         @round.holes.find_by(:number => 7).roll == true
          @hole7_points = @hole7_points*2
     else
         @hole7_points = @hole7_points
@@ -529,7 +529,7 @@ class RoundsController < ApplicationController
         @hole8_points = @hole8_points
     end
     if
-         Hole.find_by(:number => 8).roll == true
+         @round.holes.find_by(:number => 8).roll == true
          @hole8_points = @hole8_points*2
     else
         @hole8_points = @hole8_points
@@ -579,7 +579,7 @@ class RoundsController < ApplicationController
         @hole9_points = @hole9_points
     end
     if
-         Hole.find_by(:number => 9).roll == true
+         @round.holes.find_by(:number => 9).roll == true
          @hole9_points = @hole9_points*2
     else
         @hole9_points = @hole9_points
@@ -628,7 +628,7 @@ class RoundsController < ApplicationController
         @hole10_points = @hole10_points
     end
     if
-         Hole.find_by(:number => 10).roll == true
+         @round.holes.find_by(:number => 10).roll == true
          @hole10_points = @hole10_points*2
     else
         @hole10_points = @hole10_points
@@ -676,7 +676,7 @@ class RoundsController < ApplicationController
         @hole11_points = @hole11_points
     end
     if
-         Hole.find_by(:number => 11).roll == true
+         @round.holes.find_by(:number => 11).roll == true
          @hole11_points = @hole11_points*2
     else
         @hole11_points = @hole11_points
@@ -724,7 +724,7 @@ class RoundsController < ApplicationController
         @hole12_points = @hole12_points
     end
     if
-         Hole.find_by(:number => 12).roll == true
+         @round.holes.find_by(:number => 12).roll == true
          @hole12_points = @hole12_points*2
     else
         @hole12_points = @hole12_points
@@ -772,7 +772,7 @@ class RoundsController < ApplicationController
         @hole13_points = @hole13_points
     end
     if
-         Hole.find_by(:number => 13).roll == true
+         @round.holes.find_by(:number => 13).roll == true
          @hole13_points = @hole13_points*2
     else
         @hole13_points = @hole13_points
@@ -820,7 +820,7 @@ class RoundsController < ApplicationController
         @hole14_points = @hole14_points
     end
     if
-         Hole.find_by(:number => 14).roll == true
+         @round.holes.find_by(:number => 14).roll == true
          @hole14_points = @hole14_points*2
     else
         @hole14_points = @hole14_points
@@ -868,7 +868,7 @@ class RoundsController < ApplicationController
         @hole15_points = @hole15_points
     end
     if
-         Hole.find_by(:number => 15).roll == true
+         @round.holes.find_by(:number => 15).roll == true
          @hole15_points = @hole15_points*2
     else
         @hole15_points = @hole15_points
@@ -916,7 +916,7 @@ class RoundsController < ApplicationController
         @hole16_points = @hole16_points
     end
     if
-         Hole.find_by(:number => 16).roll == true
+         @round.holes.find_by(:number => 16).roll == true
          @hole16_points = @hole16_points*2
     else
         @hole16_points = @hole16_points
@@ -964,7 +964,7 @@ class RoundsController < ApplicationController
         @hole17_points = @hole17_points
     end
     if
-         Hole.find_by(:number => 17).roll == true
+         @round.holes.find_by(:number => 17).roll == true
          @hole17_points = @hole17_points*2
     else
         @hole17_points = @hole17_points
@@ -1012,7 +1012,7 @@ class RoundsController < ApplicationController
         @hole18_points = @hole18_points
     end
     if
-         Hole.find_by(:number => 18).roll == true
+         @round.holes.find_by(:number => 18).roll == true
          @hole18_points = @hole18_points*2
     else
         @hole18_points = @hole18_points
@@ -1031,25 +1031,31 @@ class RoundsController < ApplicationController
     @hole6_points+
     @hole7_points+
     @hole8_points+
-    @hole9_points
-    # @hole10_points+
-    # @hole11_points+
-    # @hole12_points+
-    # @hole13_points+
-    # @hole14_points+
-    # @hole15_points+
-    # @hole16_points+
-    # @hole17_points+
-    # @hole18_points
+    @hole9_points+
+    @hole10_points+
+    @hole11_points+
+    @hole12_points+
+    @hole13_points+
+    @hole14_points+
+    @hole15_points+
+    @hole16_points+
+    @hole17_points+
+    @hole18_points
+
+
+    @holepoints = [@hole1_points, @hole2_points, @hole3_points, @hole4_points, @hole5_points, @hole6_points, @hole7_points, @hole8_points, @hole9_points, @hole10_points, @hole11_points, @hole12_points, @hole13_points, @hole14_points, @hole15_points, @hole16_points, @hole17_points, @hole18_points]
 
     if
         @match_score > 0
-        @standing="up"
+        @standing="are up"
+        @match_score = @match_score
     elsif
         @match_score < 0
-        @standing="down"
+        @standing="are down"
+        @match_score = -1*@match_score
     else
-        @standing="tied"
+        @match_score = 0
+        @standing="are tied"
     end
 
 

@@ -39,6 +39,7 @@ class HolesController < ApplicationController
     @holes = Hole.where(:round_id =>@hole.round_id)
     @round = Round.where(:round_id =>@hole.round_id)
 
+
   end
 
   def update

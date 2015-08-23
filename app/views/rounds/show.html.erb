@@ -1,5 +1,7 @@
 <div class="page-header">
-  <h2><%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%= @match_score %>.
+  <h2>
+
+  <%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%=@match_score%>.
 
     </h2>
   <h5><%= @round.course_name %>, <%= @round.played_on %></h5>
@@ -63,233 +65,445 @@
       </div>
 
 
+
+
 <div class="row">
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-       <th>Round</th>
-        <th>Hole ID</th>
         <th>Number</th>
         <th>Par</th>
         <th><%= @round.player_1%></th>
         <th><%= @round.player_2%></th>
         <th><%= @round.player_3%></th>
         <th><%= @round.player_4%></th>
-        <th>Roll</th>
-        <th>Prox</th>
-        <th>Actions</th>
-      </tr>
-
-
-      <% @round.holes.each do |hole| %>
-      <tr>
-        <td><%= hole.round_id %></td>
-        <td><%= hole.id %></td>
-        <td><%= hole.number %></td>
-        <form action="/update_hole/<%= hole.id %>" method="post">
-        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.par %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p1_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p2_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p3_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= hole.p4_score %>"></td>
-        <td><div class="checkbox">
-        <label for="roll">
-          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if hole.roll %>>
-        </label>
-     </div>
-      </td>
-        <td><%= hole.ctp_player %></td>
-        <td>
-     <a href="/holes/<%= hole.id %>/edit" class="btn btn-primary">Edit</a>
-     </form>
-
-        <%end%>
-
-
-
-        </td>
-      </tr>
-
-
-    </table>
-  </div>
-</div>
-
-
-
-
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>Number</th>
         <th>Low Team</th>
         <th>Low Man</th>
-        <th>Roll</th>
         <th>Prox</th>
+        <th>Roll</th>
         <th>Total Points</th>
+        <th>Action</th>
       </tr>
    <tr>
         <td>1</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 1).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 1).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 1).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 1).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 1).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
         <td><%=@hole1_team%></td>
         <td><%=@hole1_man%></td>
-        <td><%=@round.holes.find_by(:number => 1).roll%></td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 1).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 1).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole1_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
    <tr>
         <td>2</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 2).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 2).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 2).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 2).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 2).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 2).p4_score %>"></td>
         <td><%=@hole2_team%></td>
         <td><%=@hole2_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 2).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 2).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole2_points%></td>
-  </tr>
-        <tr>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
+      </tr>
+
+
+   <tr>
         <td>3</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 3).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 3).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 3).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 3).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 3).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 3).p4_score %>"></td>
         <td><%=@hole3_team%></td>
         <td><%=@hole3_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 3).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 3).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole3_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>4</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 4).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 4).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 4).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 4).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 4).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 4).p4_score %>"></td>
         <td><%=@hole4_team%></td>
         <td><%=@hole4_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 4).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 4).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole4_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>5</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 5).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 5).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 5).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 5).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 5).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 5).p4_score %>"></td>
         <td><%=@hole5_team%></td>
         <td><%=@hole5_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 5).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 5).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole5_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>6</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 6).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 6).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 6).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 6).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 6).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 6).p4_score %>"></td>
         <td><%=@hole6_team%></td>
         <td><%=@hole6_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 6).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 6).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole6_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>7</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 7).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 7).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 7).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 7).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 7).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 7).p4_score %>"></td>
         <td><%=@hole7_team%></td>
         <td><%=@hole7_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 7).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 7).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole7_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+   <tr>
         <td>8</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 8).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 8).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 8).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 8).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 8).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 8).p4_score %>"></td>
         <td><%=@hole8_team%></td>
         <td><%=@hole8_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 8).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 8).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole8_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+         <tr>
         <td>9</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 9).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 9).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 9).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 9).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 9).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 9).p4_score %>"></td>
         <td><%=@hole9_team%></td>
         <td><%=@hole9_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 9).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 9).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole9_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>10</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 10).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 10).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 10).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 10).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 10).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 10).p4_score %>"></td>
         <td><%=@hole10_team%></td>
         <td><%=@hole10_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 10).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 10).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole10_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+   <tr>
         <td>11</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 11).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 11).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 11).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 11).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 11).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 11).p4_score %>"></td>
         <td><%=@hole11_team%></td>
         <td><%=@hole11_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 11).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 11).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole11_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+    <tr>
         <td>12</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 12).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 12).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 12).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 12).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 12).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 12).p4_score %>"></td>
         <td><%=@hole12_team%></td>
         <td><%=@hole12_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 12).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 12).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole12_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+      <tr>
         <td>13</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 13).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 13).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 13).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 13).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 13).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 13).p4_score %>"></td>
         <td><%=@hole13_team%></td>
         <td><%=@hole13_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 13).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 13).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole13_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+    <tr>
         <td>14</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 14).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 14).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 14).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 14).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 14).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 14).p4_score %>"></td>
         <td><%=@hole14_team%></td>
         <td><%=@hole14_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 14).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 14).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole14_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+    <tr>
         <td>15</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 15).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 15).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 15).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 15).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 15).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 15).p4_score %>"></td>
         <td><%=@hole15_team%></td>
         <td><%=@hole15_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 15).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 15).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole15_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+    <tr>
         <td>16</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 16).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 16).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 16).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 16).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 16).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 16).p4_score %>"></td>
         <td><%=@hole16_team%></td>
         <td><%=@hole16_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 16).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 16).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole16_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+    <tr>
         <td>17</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 17).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 17).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 17).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 17).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 17).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 17).p4_score %>"></td>
         <td><%=@hole17_team%></td>
         <td><%=@hole17_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 17).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 17).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole17_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
 
-  <tr>
+
+    <tr>
         <td>18</td>
+        <form action="/update_hole/<%= @round.holes.find_by(:number => 18).id %>" method="post">
+        <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 18).par %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 18).p1_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 18).p2_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 18).p3_score %>"></td>
+        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 18).p4_score %>"></td>
         <td><%=@hole18_team%></td>
         <td><%=@hole18_man%></td>
-        <td>Roll</td>
-        <td>Prox</td>
+        <td><%=@round.holes.find_by(:number => 18).ctp_player%></td>
+        <td><div class="checkbox">
+        <label for="roll">
+          <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 18).roll %>>
+        </label>
+     </div>
+      </td>
         <td><%=@hole18_points%></td>
+        <td>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+     </form>
       </tr>
-
 
 
 
