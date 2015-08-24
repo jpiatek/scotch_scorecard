@@ -8,6 +8,13 @@
     </div>
 
 
+    <div class="btn-group btn-group-justified">
+      <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
+        Edit Players
+      </a>
+      </div>
+
+
 <h3>Scores</h3>
 <div class="row">
   <div class="col-md-12">
@@ -53,14 +60,9 @@
   </div>
  </table>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
-        Edit Players
-      </a>
-      </div>
        <div class="btn-group btn-group-justified">
         <a href="/holes/<%= @round.holes.find_by(:number => 1).id %>/edit" class="btn btn-primary">
-        Edit Holes
+        Edit Scores
       </a>
       </div>
 
