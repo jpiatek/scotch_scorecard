@@ -177,7 +177,7 @@ class RoundsController < ApplicationController
     else
         @hole1_prox = 0
     end
-# # BIRDIES DOUBLE
+# BIRDIES DOUBLE
 #     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
 #         @hole1_man = 4
 #     elsif
@@ -251,16 +251,24 @@ class RoundsController < ApplicationController
         @hole2_man=0
     end
 
+
+
+# PROX
     if
-        Hole.find_by(:number => 2).ctp_player == @round.player_1 || @round.player_2
-        @hole1_prox=1
+        @round.holes.find_by(:number => 2).ctp_player == @round.player_1
+        @hole2_prox=1
     elsif
-        Hole.find_by(:number => 2).ctp_player == @round.player_3 || @round.player_4
-        @hole1_prox=-1
+        @round.holes.find_by(:number => 2).ctp_player == @round.player_2
+        @hole2_prox=1
+    elsif
+        @round.holes.find_by(:number => 2).ctp_player == @round.player_3
+        @hole2_prox=-1
+    elsif
+        @round.holes.find_by(:number => 2).ctp_player == @round.player_4
+        @hole2_prox=-1
     else
-        @hole1_prox = 0
+        @hole2_prox = 0
     end
-    @hole2_prox = 0
 
     @hole2_points=@hole2_team+@hole2_man+@hole2_prox
 
@@ -301,16 +309,23 @@ class RoundsController < ApplicationController
         @hole3_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 3).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 3).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole3_prox = 0
+
+# PROX
+    if
+        @round.holes.find_by(:number => 3).ctp_player == @round.player_1
+        @hole3_prox=1
+    elsif
+        @round.holes.find_by(:number => 3).ctp_player == @round.player_2
+        @hole3_prox=1
+    elsif
+        @round.holes.find_by(:number => 3).ctp_player == @round.player_3
+        @hole3_prox=-1
+    elsif
+        @round.holes.find_by(:number => 3).ctp_player == @round.player_4
+        @hole3_prox=-1
+    else
+        @hole3_prox = 0
+    end
 
     @hole3_points=@hole3_team+@hole3_man+@hole3_prox
 
@@ -350,16 +365,23 @@ class RoundsController < ApplicationController
         @hole4_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 4).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 4).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole4_prox = 0
+
+# PROX
+    if
+        @round.holes.find_by(:number => 4).ctp_player == @round.player_1
+        @hole4_prox=1
+    elsif
+        @round.holes.find_by(:number => 4).ctp_player == @round.player_2
+        @hole4_prox=1
+    elsif
+        @round.holes.find_by(:number => 4).ctp_player == @round.player_3
+        @hole4_prox=-1
+    elsif
+        @round.holes.find_by(:number => 4).ctp_player == @round.player_4
+        @hole4_prox=-1
+    else
+        @hole4_prox = 0
+    end
 
     @hole4_points=@hole4_team+@hole4_man+@hole4_prox
 
@@ -399,16 +421,22 @@ class RoundsController < ApplicationController
         @hole5_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 5).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 5).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole5_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 5).ctp_player == @round.player_1
+        @hole5_prox=1
+    elsif
+        @round.holes.find_by(:number => 5).ctp_player == @round.player_2
+        @hole5_prox=1
+    elsif
+        @round.holes.find_by(:number => 5).ctp_player == @round.player_3
+        @hole5_prox=-1
+    elsif
+        @round.holes.find_by(:number => 5).ctp_player == @round.player_4
+        @hole5_prox=-1
+    else
+        @hole5_prox = 0
+    end
 
     @hole5_points=@hole5_team+@hole5_man+@hole5_prox
 
@@ -449,16 +477,22 @@ class RoundsController < ApplicationController
         @hole6_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 6).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 6).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole6_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 6).ctp_player == @round.player_1
+        @hole6_prox=1
+    elsif
+        @round.holes.find_by(:number => 6).ctp_player == @round.player_2
+        @hole6_prox=1
+    elsif
+        @round.holes.find_by(:number => 6).ctp_player == @round.player_3
+        @hole6_prox=-1
+    elsif
+        @round.holes.find_by(:number => 6).ctp_player == @round.player_4
+        @hole6_prox=-1
+    else
+        @hole6_prox = 0
+    end
 
     @hole6_points=@hole6_team+@hole6_man+@hole6_prox
 
@@ -499,17 +533,22 @@ class RoundsController < ApplicationController
         @hole7_man=0
     end
 
-
-    # if
-    #     Hole.find_by(:number => 7).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  7).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole7_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 7).ctp_player == @round.player_1
+        @hole7_prox=1
+    elsif
+        @round.holes.find_by(:number => 7).ctp_player == @round.player_2
+        @hole7_prox=1
+    elsif
+        @round.holes.find_by(:number => 7).ctp_player == @round.player_3
+        @hole7_prox=-1
+    elsif
+        @round.holes.find_by(:number => 7).ctp_player == @round.player_4
+        @hole7_prox=-1
+    else
+        @hole7_prox = 0
+    end
 
     @hole7_points=@hole7_team+@hole7_man+@hole7_prox
 
@@ -550,16 +589,22 @@ class RoundsController < ApplicationController
         @hole8_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 8).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  8).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole8_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 8).ctp_player == @round.player_1
+        @hole8_prox=1
+    elsif
+        @round.holes.find_by(:number => 8).ctp_player == @round.player_2
+        @hole8_prox=1
+    elsif
+        @round.holes.find_by(:number => 8).ctp_player == @round.player_3
+        @hole8_prox=-1
+    elsif
+        @round.holes.find_by(:number => 8).ctp_player == @round.player_4
+        @hole8_prox=-1
+    else
+        @hole8_prox = 0
+    end
 
     @hole8_points=@hole8_team+@hole8_man+@hole8_prox
 
@@ -600,16 +645,22 @@ class RoundsController < ApplicationController
         @hole9_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 9).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  9).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole9_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 9).ctp_player == @round.player_1
+        @hole9_prox=1
+    elsif
+        @round.holes.find_by(:number => 9).ctp_player == @round.player_2
+        @hole9_prox=1
+    elsif
+        @round.holes.find_by(:number => 9).ctp_player == @round.player_3
+        @hole9_prox=-1
+    elsif
+        @round.holes.find_by(:number => 9).ctp_player == @round.player_4
+        @hole9_prox=-1
+    else
+        @hole9_prox = 0
+    end
 
     @hole9_points=@hole9_team+@hole9_man+@hole9_prox
 
@@ -649,16 +700,22 @@ class RoundsController < ApplicationController
         @hole10_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 10).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  10).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole10_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 10).ctp_player == @round.player_1
+        @hole10_prox=1
+    elsif
+        @round.holes.find_by(:number => 10).ctp_player == @round.player_2
+        @hole10_prox=1
+    elsif
+        @round.holes.find_by(:number => 10).ctp_player == @round.player_3
+        @hole10_prox=-1
+    elsif
+        @round.holes.find_by(:number => 10).ctp_player == @round.player_4
+        @hole10_prox=-1
+    else
+        @hole10_prox = 0
+    end
 
     @hole10_points=@hole10_team+@hole10_man+@hole10_prox
 
@@ -696,17 +753,22 @@ class RoundsController < ApplicationController
     else
         @hole11_man=0
     end
-
-    # if
-    #     Hole.find_by(:number => 11).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  11).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole11_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 11).ctp_player == @round.player_1
+        @hole11_prox=1
+    elsif
+        @round.holes.find_by(:number => 11).ctp_player == @round.player_2
+        @hole11_prox=1
+    elsif
+        @round.holes.find_by(:number => 11).ctp_player == @round.player_3
+        @hole11_prox=-1
+    elsif
+        @round.holes.find_by(:number => 11).ctp_player == @round.player_4
+        @hole11_prox=-1
+    else
+        @hole11_prox = 0
+    end
 
     @hole11_points=@hole11_team+@hole11_man+@hole11_prox
 
@@ -744,17 +806,22 @@ class RoundsController < ApplicationController
     else
         @hole12_man=0
     end
-
-    # if
-    #     Hole.find_by(:number => 12).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  12).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole12_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 12).ctp_player == @round.player_1
+        @hole12_prox=1
+    elsif
+        @round.holes.find_by(:number => 12).ctp_player == @round.player_2
+        @hole12_prox=1
+    elsif
+        @round.holes.find_by(:number => 12).ctp_player == @round.player_3
+        @hole12_prox=-1
+    elsif
+        @round.holes.find_by(:number => 12).ctp_player == @round.player_4
+        @hole12_prox=-1
+    else
+        @hole12_prox = 0
+    end
 
     @hole12_points=@hole12_team+@hole12_man+@hole12_prox
 
@@ -793,16 +860,22 @@ class RoundsController < ApplicationController
         @hole13_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 13).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  13).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole13_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 13).ctp_player == @round.player_1
+        @hole13_prox=1
+    elsif
+        @round.holes.find_by(:number => 13).ctp_player == @round.player_2
+        @hole13_prox=1
+    elsif
+        @round.holes.find_by(:number => 13).ctp_player == @round.player_3
+        @hole13_prox=-1
+    elsif
+        @round.holes.find_by(:number => 13).ctp_player == @round.player_4
+        @hole13_prox=-1
+    else
+        @hole13_prox = 0
+    end
 
     @hole13_points=@hole13_team+@hole13_man+@hole13_prox
 
@@ -840,17 +913,22 @@ class RoundsController < ApplicationController
     else
         @hole14_man=0
     end
-
-    # if
-    #     Hole.find_by(:number => 14).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  14).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole14_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 14).ctp_player == @round.player_1
+        @hole14_prox=1
+    elsif
+        @round.holes.find_by(:number => 14).ctp_player == @round.player_2
+        @hole14_prox=1
+    elsif
+        @round.holes.find_by(:number => 14).ctp_player == @round.player_3
+        @hole14_prox=-1
+    elsif
+        @round.holes.find_by(:number => 14).ctp_player == @round.player_4
+        @hole14_prox=-1
+    else
+        @hole14_prox = 0
+    end
 
     @hole14_points=@hole14_team+@hole14_man+@hole14_prox
 
@@ -889,16 +967,22 @@ class RoundsController < ApplicationController
         @hole15_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 15).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  15).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole15_prox = 0
+ # PROX
+    if
+        @round.holes.find_by(:number => 15).ctp_player == @round.player_1
+        @hole15_prox=1
+    elsif
+        @round.holes.find_by(:number => 15).ctp_player == @round.player_2
+        @hole15_prox=1
+    elsif
+        @round.holes.find_by(:number => 15).ctp_player == @round.player_3
+        @hole15_prox=-1
+    elsif
+        @round.holes.find_by(:number => 15).ctp_player == @round.player_4
+        @hole15_prox=-1
+    else
+        @hole15_prox = 0
+    end
 
     @hole15_points=@hole15_team+@hole15_man+@hole15_prox
 
@@ -936,17 +1020,22 @@ class RoundsController < ApplicationController
     else
         @hole16_man=0
     end
-
-    # if
-    #     Hole.find_by(:number => 16).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  16).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole16_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 16).ctp_player == @round.player_1
+        @hole16_prox=1
+    elsif
+        @round.holes.find_by(:number => 16).ctp_player == @round.player_2
+        @hole16_prox=1
+    elsif
+        @round.holes.find_by(:number => 16).ctp_player == @round.player_3
+        @hole16_prox=-1
+    elsif
+        @round.holes.find_by(:number => 16).ctp_player == @round.player_4
+        @hole16_prox=-1
+    else
+        @hole16_prox = 0
+    end
 
     @hole16_points=@hole16_team+@hole16_man+@hole16_prox
 
@@ -985,16 +1074,22 @@ class RoundsController < ApplicationController
         @hole17_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 17).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  17).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole17_prox = 0
+ # PROX
+    if
+        @round.holes.find_by(:number => 17).ctp_player == @round.player_1
+        @hole17_prox=1
+    elsif
+        @round.holes.find_by(:number => 17).ctp_player == @round.player_2
+        @hole17_prox=1
+    elsif
+        @round.holes.find_by(:number => 17).ctp_player == @round.player_3
+        @hole17_prox=-1
+    elsif
+        @round.holes.find_by(:number => 17).ctp_player == @round.player_4
+        @hole17_prox=-1
+    else
+        @hole17_prox = 0
+    end
 
     @hole17_points=@hole17_team+@hole17_man+@hole17_prox
 
@@ -1032,17 +1127,22 @@ class RoundsController < ApplicationController
     else
         @hole18_man=0
     end
-
-    # if
-    #     Hole.find_by(:number => 18).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number =>  18).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole18_prox = 0
+# PROX
+    if
+        @round.holes.find_by(:number => 18).ctp_player == @round.player_1
+        @hole18_prox=1
+    elsif
+        @round.holes.find_by(:number => 18).ctp_player == @round.player_2
+        @hole18_prox=1
+    elsif
+        @round.holes.find_by(:number => 18).ctp_player == @round.player_3
+        @hole18_prox=-1
+    elsif
+        @round.holes.find_by(:number => 18).ctp_player == @round.player_4
+        @hole18_prox=-1
+    else
+        @hole18_prox = 0
+    end
 
     @hole18_points=@hole18_team+@hole18_man+@hole18_prox
 
@@ -1303,8 +1403,9 @@ end
     if @round.save
       redirect_to "/rounds", :notice => "Round created successfully."
     else
-      render '/holes'
+      render 'new'
     end
+  end
 
   def edit
     @round = Round.find(params[:id])
@@ -1334,5 +1435,4 @@ end
 
     redirect_to "/rounds", :notice => "Round deleted."
   end
-end
 end

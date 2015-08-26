@@ -105,15 +105,8 @@
         <td><input type="text" size="1" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
         <td><%=@hole1_team%> </td>
         <td><%=@hole1_man%></td>
-        <td>
-           <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+            <td>
+      <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>1).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -127,7 +120,7 @@
               Update Hole
               </button>
      </form>
-     <td><%=@umbrella%></td>
+     <td><td><i class="fa fa-umbrella"></i></td></td>
       </tr>
 
    <tr>
@@ -149,14 +142,7 @@
         <td><%=@hole2_team%></td>
         <td><%=@hole2_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 2).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>2).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+      <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>2).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -190,14 +176,9 @@
         <td><input type="text" size="1" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 3).p4_score %>"></td>
         <td><%=@hole3_team%></td>
         <td><%=@hole3_man%></td>
-        <td>     <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 3).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>3).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select></td>
+        <td>
+             <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>3).ctp_player) %>
+        </td>
         <td><div class="checkbox">
         <label for="roll">
           <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 3).roll %>>
@@ -230,14 +211,7 @@
         <td><%=@hole4_team%></td>
         <td><%=@hole4_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 4).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>4).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+            <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>4).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -271,15 +245,7 @@
         <td><%=@hole5_team%></td>
         <td><%=@hole5_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 5).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>5).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
-
+           <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>5).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -313,15 +279,7 @@
         <td><%=@hole6_team%></td>
         <td><%=@hole6_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 6).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>6).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
-
+              <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>6).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -355,14 +313,7 @@
         <td><%=@hole7_team%></td>
         <td><%=@hole7_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 7).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>7).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+            <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>7).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -397,14 +348,7 @@
         <td><%=@hole8_team%></td>
         <td><%=@hole8_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 8).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>8).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+        <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>8).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -438,15 +382,7 @@
         <td><%=@hole9_team%></td>
         <td><%=@hole9_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 9).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>9).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
-
+        <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>9).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -480,14 +416,7 @@
         <td><%=@hole10_team%></td>
         <td><%=@hole10_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 10).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>10).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+        <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>10).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -521,15 +450,7 @@
         <td><%=@hole11_team%></td>
         <td><%=@hole11_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 11).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>11).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
-
+        <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>11).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -563,15 +484,7 @@
         <td><%=@hole12_team%></td>
         <td><%=@hole12_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 12).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>12).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
-
+           <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>12).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -605,14 +518,7 @@
         <td><%=@hole13_team%></td>
         <td><%=@hole13_man%></td>
         <td>
-               <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 13).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>13).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>13).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -647,14 +553,7 @@
         <td><%=@hole14_team%></td>
         <td><%=@hole14_man%></td>
         <td>
-                   <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 14).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>14).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>14).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -689,14 +588,7 @@
         <td><%=@hole15_team%></td>
         <td><%=@hole15_man%></td>
         <td>
-                   <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 15).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>15).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>15).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -731,14 +623,7 @@
         <td><%=@hole16_team%></td>
         <td><%=@hole16_man%></td>
         <td>
-                   <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 16).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>16).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>16).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -772,14 +657,7 @@
         <td><%=@hole17_team%></td>
         <td><%=@hole17_man%></td>
         <td>
-                   <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 17).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>17).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>17).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -814,14 +692,7 @@
         <td><%=@hole18_team%></td>
         <td><%=@hole18_man%></td>
         <td>
-                   <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 18).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>18).ctp_player%></option>
-          <option value="value1"><%=@round.player_1%></option>
-          <option value="value2"><%=@round.player_2%></option>
-          <option value="value3"><%=@round.player_3%></option>
-          <option value="value3"><%=@round.player_4%></option>
-      </select>
+          <%= select_tag :ctp_player, options_for_select(["", @round.player_1, @round.player_2, @round.player_3, @round.player_4], @round.holes.find_by(:number=>18).ctp_player) %>
         </td>
         <td><div class="checkbox">
         <label for="roll">
@@ -838,10 +709,6 @@
      <td><%=@umbrella%></td>
       </tr>
 
-
-
-        </td>
-      </tr>
 
 
     </table>
