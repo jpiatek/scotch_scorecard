@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    5 Point Scotch Game
+    5 Point Scotch
     <a href="/rounds/new" class="btn btn-lg btn-success">New Round</a>
   </h1>
 </div>
@@ -12,6 +12,7 @@
         <th>Course name</th>
         <th>Played on</th>
 <!--         <th>User</th> -->
+        <th>Round ID</th>
         <th>Player 1</th>
         <th>Player 2</th>
         <th>Player 3</th>
@@ -24,6 +25,7 @@
         <td><%= round.course_name %></td>
         <td><%= round.played_on %></td>
  <!--        <td><%= round.user_id %></td> -->
+        <td><%= round.id %></td>
         <td><%= round.player_1 %></td>
         <td><%= round.player_2 %></td>
         <td><%= round.player_3 %></td>
@@ -32,7 +34,7 @@
 
         <td>
           <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show Round</a>
-          <a href="/rounds/<%= round.id %>/edit" class="btn btn-warning">Edit Round</a>
+          <a href="/rounds/<%= round.id %>/edit" class="btn btn-warning">Edit Players</a>
           <a href="/delete_round/<%= round.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>

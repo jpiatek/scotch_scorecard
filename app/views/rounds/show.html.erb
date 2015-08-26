@@ -1,7 +1,7 @@
 <div class="page-header">
   <h2>
 
-  <%= @round.player_1 %> and <%= @round.player_2 %> are <%= @standing %> <%=@match_score%>.
+  <%= @standing %>
 
     </h2>
   <h5><%= @round.course_name %>, <%= @round.played_on %></h5>
@@ -10,7 +10,7 @@
 
     <div class="btn-group btn-group-justified">
       <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
-        Edit Players
+        Edit Match Set Up
       </a>
       </div>
 
@@ -61,11 +61,10 @@
  </table>
 
        <div class="btn-group btn-group-justified">
-        <a href="/holes/<%= @round.holes.find_by(:number => 1).id %>/edit" class="btn btn-primary">
+        <a href="/holes/<%= @round.holes.find_by(:number=>1).id%>/edit" class="btn btn-warning">
         Edit Scores
       </a>
       </div>
-
 
 
 
@@ -87,16 +86,32 @@
         <th>Action</th>
       </tr>
    <tr>
+
+          <form action="/update_hole/<%= @round.holes.find_by(:number => 1).id %>" method="post">
+
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
         <td>1</td>
-        <form action="/update_hole/<%= @round.holes.find_by(:number => 1).id %>" method="post">
         <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 1).par %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 1).p1_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 1).p2_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 1).p3_score %>"></td>
-        <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
+        <td><input type="text" size="1" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 1).p1_score %>"></td>
+        <td><input type="text" size="1" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 1).p2_score %>"></td>
+        <td><input type="text" size="1" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 1).p3_score %>"></td>
+        <td><input type="text" size="1" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
         <td><%=@hole1_team%></td>
         <td><%=@hole1_man%></td>
-        <td><%=@round.holes.find_by(:number => 1).ctp_player%></td>
+        <td>
+           <!-- Label and input for ctp_player -->
+      <select name="Prox[ctp_player]">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+          <option value="value1"><%=@round.player_1%></option>
+          <option value="value2"><%=@round.player_2%></option>
+          <option value="value3"><%=@round.player_3%></option>
+          <option value="value3"><%=@round.player_4%></option>
+      </select>
+        </td>
         <td><div class="checkbox">
         <label for="roll">
           <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 1).roll %>>
@@ -105,12 +120,16 @@
       </td>
         <td><%=@hole1_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+           <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
    <tr>
-        <td>2</td>
+
+
+
+
+       <td>2</td>
         <form action="/update_hole/<%= @round.holes.find_by(:number => 2).id %>" method="post">
         <td><input type="text" size="1" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 2).par %>"></td>
         <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 2).p1_score %>"></td>
@@ -119,7 +138,16 @@
         <td><input type="text" size="1" id="par" name="par" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 2).p4_score %>"></td>
         <td><%=@hole2_team%></td>
         <td><%=@hole2_man%></td>
-        <td><%=@round.holes.find_by(:number => 2).ctp_player%></td>
+        <td>
+                     <!-- Label and input for ctp_player -->
+    <select name="Prox[ctp_player]">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>2).ctp_player%></option>
+          <option value="value1"><%=@round.player_1%></option>
+          <option value="value2"><%=@round.player_2%></option>
+          <option value="value3"><%=@round.player_3%></option>
+          <option value="value3"><%=@round.player_4%></option>
+    </select>
+        </td>
         <td><div class="checkbox">
         <label for="roll">
           <input type="checkbox" id="roll" name="roll" value="1" <%= "checked" if @round.holes.find_by(:number => 2).roll %>>
@@ -128,7 +156,7 @@
       </td>
         <td><%=@hole2_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -152,7 +180,7 @@
       </td>
         <td><%=@hole3_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -175,7 +203,7 @@
       </td>
         <td><%=@hole4_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -198,7 +226,7 @@
       </td>
         <td><%=@hole5_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -221,7 +249,7 @@
       </td>
         <td><%=@hole6_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -244,7 +272,7 @@
       </td>
         <td><%=@hole7_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -268,7 +296,7 @@
       </td>
         <td><%=@hole8_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -292,7 +320,7 @@
       </td>
         <td><%=@hole9_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -315,7 +343,7 @@
       </td>
         <td><%=@hole10_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -338,7 +366,7 @@
       </td>
         <td><%=@hole11_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -361,7 +389,7 @@
       </td>
         <td><%=@hole12_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -384,7 +412,7 @@
       </td>
         <td><%=@hole13_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -408,7 +436,7 @@
       </td>
         <td><%=@hole14_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -432,7 +460,7 @@
       </td>
         <td><%=@hole15_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -456,7 +484,7 @@
       </td>
         <td><%=@hole16_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -479,7 +507,7 @@
       </td>
         <td><%=@hole17_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 
@@ -503,7 +531,7 @@
       </td>
         <td><%=@hole18_points%></td>
         <td>
-        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-warning">Edit</a>
+        <a href="/holes/<%= @round.holes.first.id %>/edit" class="btn btn-primary">Edit</a>
      </form>
       </tr>
 

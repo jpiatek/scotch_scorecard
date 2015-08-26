@@ -57,7 +57,7 @@ class HolesController < ApplicationController
     if @hole.save
       redirect_to :back, :notice => "Hole updated successfully."
     else
-      render 'edit'
+      redirect_to :back,  :notice => "Hole did not save."
     end
   end
 

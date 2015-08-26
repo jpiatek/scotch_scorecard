@@ -141,6 +141,7 @@ class RoundsController < ApplicationController
 # Points logic
 
 # hole1
+# LOW TEAM
     if
         @p1h1+@p2h1<@p3h1+@p4h1
         @hole1_team=2
@@ -150,7 +151,7 @@ class RoundsController < ApplicationController
     else
         @hole1_team=0
     end
-
+# LOW MAN
     if
         @p1h1 < @p3h1 && @p1h1 < @p4h1 || @p2h1 < @p3h1 && @p2h1 < @p4h1
         @hole1_man=2
@@ -160,20 +161,55 @@ class RoundsController < ApplicationController
     else
         @hole1_man=0
     end
+# PROX
+    if
+        @round.holes.find_by(:number => 1).ctp_player == @round.player_1
+        @hole1_prox=1
+    elsif
+        @round.holes.find_by(:number => 1).ctp_player == @round.player_2
+        @hole1_prox=1
+    elsif
+        @round.holes.find_by(:number => 1).ctp_player == @round.player_3
+        @hole1_prox=-1
+    elsif
+        @round.holes.find_by(:number => 1).ctp_player == @round.player_4
+        @hole1_prox=-1
+    else
+        @hole1_prox = 0
+    end
+# BIRDIES DOUBLE
+    if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
+        @hole1_man = 4
+    elsif
+        @p3h1 || @p4h1 == @parh1-1 && @hole1_man == -2
+        @hole1_man = -4
+    else
+        @hole1_man = @hole1_man
+    end
+    if
+        @p1h1 || @p2h1 == @parh1-1 && @hole1_team == 2
+        @hole1_team = 4
+    elsif
+        @p3h1 || @p4h1 == @parh1-1 && @hole1_team == -2
+        @hole1_team = -4
+    else
+        @hole1_team = @hole1_team
+    end
+    if  @p1h1 || @p2h1 == @parh1-1 && @hole1_prox == 1
+        @hole1_prox = 2
+    elsif
+        @p3h1 || @p4h1 == @parh1-1 && @hole1_prox == -1
+        @hole1_prox = -2
+    else
+        @hole1_prox = @hole1_prox
+    end
 
-    # if
-    #     Hole.find_by(:number => 1).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 1).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
-    @hole1_prox = 0
 
+# EAGLES QUADRUPLE
+
+
+# UMBRELLA
     @hole1_points=@hole1_team+@hole1_man+@hole1_prox
-
     if
         @hole1_points == 5
         @hole1_points = 10
@@ -181,12 +217,17 @@ class RoundsController < ApplicationController
         @hole1_points = @hole1_points
     end
 
+
+
+# ROLL
     if
          @round.holes.find_by(:number => 1).roll == true
          @hole1_points = @hole1_points*2
     else
         @hole1_points = @hole1_points
     end
+
+
 
 # hole2
 
@@ -210,15 +251,15 @@ class RoundsController < ApplicationController
         @hole2_man=0
     end
 
-    # if
-    #     Hole.find_by(:number => 2).ctp_player == @round.player_1 || @round.player_2
-    #     @hole1_prox=1
-    # elsif
-    #     Hole.find_by(:number => 2).ctp_player == @round.player_3 || @round.player_4
-    #     @hole1_prox=-1
-    # else
-    #     @hole1_prox = 0
-    # end
+    if
+        Hole.find_by(:number => 2).ctp_player == @round.player_1 || @round.player_2
+        @hole1_prox=1
+    elsif
+        Hole.find_by(:number => 2).ctp_player == @round.player_3 || @round.player_4
+        @hole1_prox=-1
+    else
+        @hole1_prox = 0
+    end
     @hole2_prox = 0
 
     @hole2_points=@hole2_team+@hole2_man+@hole2_prox
@@ -1047,15 +1088,15 @@ class RoundsController < ApplicationController
 
     if
         @match_score > 0
-        @standing="are up"
         @match_score = @match_score
+        @standing= @round.player_1+" and "+@round.player_2+" are up "+@match_score.to_s+"."
     elsif
         @match_score < 0
-        @standing="are down"
         @match_score = -1*@match_score
+        @standing= @round.player_3+" and "+@round.player_4+" are up "+@match_score.to_s+"."
     else
         @match_score = 0
-        @standing="are tied"
+        @standing="The match is tied."
     end
 
 
