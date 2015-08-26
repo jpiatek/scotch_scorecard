@@ -85,6 +85,7 @@
         <th>Roll</th>
         <th>Total Points</th>
         <th>Action</th>
+        <th>Umbrella</th>
       </tr>
    <tr>
 
@@ -102,7 +103,7 @@
         <td><input type="text" size="1" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 1).p2_score %>"></td>
         <td><input type="text" size="1" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 1).p3_score %>"></td>
         <td><input type="text" size="1" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
-        <td><%=@hole1_team%></td>
+        <td><%=@hole1_team%> </td>
         <td><%=@hole1_man%></td>
         <td>
            <!-- Label and input for ctp_player -->
@@ -126,6 +127,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -148,8 +150,8 @@
         <td><%=@hole2_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 2).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>2).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -168,6 +170,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -188,8 +191,8 @@
         <td><%=@hole3_team%></td>
         <td><%=@hole3_man%></td>
         <td>     <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 3).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>3).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -207,6 +210,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -227,8 +231,8 @@
         <td><%=@hole4_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 4).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>4).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -247,6 +251,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -267,8 +272,8 @@
         <td><%=@hole5_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 5).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>5).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -288,6 +293,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -308,8 +314,8 @@
         <td><%=@hole6_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 6).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>6).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -329,6 +335,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -349,8 +356,8 @@
         <td><%=@hole7_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 7).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>7).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -369,6 +376,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -390,8 +398,8 @@
         <td><%=@hole8_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+      <select name="<%=@round.holes.find_by(:number => 8).ctp_player%>">
+          <option value="nil" selected><%=@round.holes.find_by(:number=>8).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -410,6 +418,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -431,7 +440,7 @@
         <td>
                <!-- Label and input for ctp_player -->
       <select name="<%=@round.holes.find_by(:number => 9).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+          <option value="nil" selected><%=@round.holes.find_by(:number=>9).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -451,6 +460,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -472,7 +482,7 @@
         <td>
                <!-- Label and input for ctp_player -->
       <select name="<%=@round.holes.find_by(:number => 10).ctp_player%>">
-          <option value="nil" selected><%=@round.holes.find_by(:number=>1).ctp_player%></option>
+          <option value="nil" selected><%=@round.holes.find_by(:number=>10).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
           <option value="value3"><%=@round.player_3%></option>
@@ -491,6 +501,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
    <tr>
@@ -511,7 +522,7 @@
         <td><%=@hole11_man%></td>
         <td>
                <!-- Label and input for ctp_player -->
-      <select name="<%=@round.holes.find_by(:number => 1).ctp_player%>">
+      <select name="<%=@round.holes.find_by(:number => 11).ctp_player%>">
           <option value="nil" selected><%=@round.holes.find_by(:number=>11).ctp_player%></option>
           <option value="value1"><%=@round.player_1%></option>
           <option value="value2"><%=@round.player_2%></option>
@@ -532,6 +543,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
     <tr>
@@ -573,6 +585,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
       <tr>
@@ -613,6 +626,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -654,6 +668,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -695,6 +710,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -736,6 +752,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
     <tr>
@@ -776,6 +793,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
@@ -817,6 +835,7 @@
               Update Hole
               </button>
      </form>
+     <td><%=@umbrella%></td>
       </tr>
 
 
