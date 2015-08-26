@@ -177,32 +177,32 @@ class RoundsController < ApplicationController
     else
         @hole1_prox = 0
     end
-# BIRDIES DOUBLE
-    if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
-        @hole1_man = 4
-    elsif
-        @p3h1 || @p4h1 == @parh1-1 && @hole1_man == -2
-        @hole1_man = -4
-    else
-        @hole1_man = @hole1_man
-    end
-    if
-        @p1h1 || @p2h1 == @parh1-1 && @hole1_team == 2
-        @hole1_team = 4
-    elsif
-        @p3h1 || @p4h1 == @parh1-1 && @hole1_team == -2
-        @hole1_team = -4
-    else
-        @hole1_team = @hole1_team
-    end
-    if  @p1h1 || @p2h1 == @parh1-1 && @hole1_prox == 1
-        @hole1_prox = 2
-    elsif
-        @p3h1 || @p4h1 == @parh1-1 && @hole1_prox == -1
-        @hole1_prox = -2
-    else
-        @hole1_prox = @hole1_prox
-    end
+# # BIRDIES DOUBLE
+#     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
+#         @hole1_man = 4
+#     elsif
+#         @p3h1 || @p4h1 == @parh1-1 && @hole1_man == -2
+#         @hole1_man = -4
+#     else
+#         @hole1_man = @hole1_man
+#     end
+#     if
+#         @p1h1 || @p2h1 == @parh1-1 && @hole1_team == 2
+#         @hole1_team = 4
+#     elsif
+#         @p3h1 || @p4h1 == @parh1-1 && @hole1_team == -2
+#         @hole1_team = -4
+#     else
+#         @hole1_team = @hole1_team
+#     end
+#     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_prox == 1
+#         @hole1_prox = 2
+#     elsif
+#         @p3h1 || @p4h1 == @parh1-1 && @hole1_prox == -1
+#         @hole1_prox = -2
+#     else
+#         @hole1_prox = @hole1_prox
+#     end
 
 
 # EAGLES QUADRUPLE
