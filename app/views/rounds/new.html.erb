@@ -27,12 +27,7 @@
       </div>
 
       <!-- Label and input for played_on -->
-      <div class="form-group">
-        <label for="played_on" class="control-label">
-          Played on
-        </label>
-        <input type="text" id="played_on" name="played_on" placeholder="Played on" class="form-control" value="<%= @round.played_on %>">
-      </div>
+           <input type="hidden" name="played_on" placeholder="played_on" value="<%= Date.current %>">
 
       Player 1 and Player 2 are a team:
       <!-- Label and input for player_1 -->
@@ -72,7 +67,7 @@ Player 3 and Player 4 are a team:
 
       <!-- Label and input for user_id -->
           <input type="hidden" name="user_id" placeholder="User" value="<%= current_user.id %>">
-      </div>
+
 
       <button class="btn btn-success">
         Create Round

@@ -2418,6 +2418,7 @@ end
     @round.user_id = params[:user_id]
     @round.save
 
+
     @hole = Hole.new
     @hole.round_id = @round.id
     @hole.number = 1
