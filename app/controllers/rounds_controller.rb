@@ -138,14 +138,14 @@ class RoundsController < ApplicationController
 
     @course_par= @parh1+@parh2+@parh3+@parh4+@parh5+@parh6+@parh7+@parh8+@parh9+@parh10+ @parh11+ @parh12+ @parh13+ @parh14+ @parh15+ @parh16+ @parh17+ @parh18
 
-# Points logic
+ # Points logic
 
 # hole1
 # LOW TEAM
     if
         @p1h1+@p2h1<@p3h1+@p4h1
         @hole1_team=2
-    elsif
+     elsif
         @p1h1+@p2h1>@p3h1+@p4h1
         @hole1_team=-2
     else
@@ -179,35 +179,10 @@ class RoundsController < ApplicationController
     end
 
 
-    @hole1_points=@hole1_team+@hole1_man+@hole1_prox
+@hole1_points=@hole1_team+@hole1_man+@hole1_prox
+
 
 # BIRDIES DOUBLE
-#     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
-#         @hole1_man = 4
-#     elsif
-#         @p3h1 || @p4h1 == @parh1-1 && @hole1_man == -2
-#         @hole1_man = -4
-#     else
-#         @hole1_man = @hole1_man
-#     end
-#     if
-#         @p1h1 || @p2h1 == @parh1-1 && @hole1_team == 2
-#         @hole1_team = 4
-#     elsif
-#         @p3h1 || @p4h1 == @parh1-1 && @hole1_team == -2
-#         @hole1_team = -4
-#     else
-#         @hole1_team = @hole1_team
-#     end
-#     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_prox == 1
-#         @hole1_prox = 2
-#     elsif
-#         @p3h1 || @p4h1 == @parh1-1 && @hole1_prox == -1
-#         @hole1_prox = -2
-#     else
-#         @hole1_prox = @hole1_prox
-#     end
-
 
 # EAGLES QUADRUPLE
 
@@ -215,7 +190,7 @@ class RoundsController < ApplicationController
 # UMBRELLA
 
     if
-        @hole1_points == 5 || @hole1_points == -5
+        @hole1_man > 0 && @hole1_team > 0 && @hole1_prox > 0 || @hole1_man < 0 && @hole1_team < 0 && @hole1_prox < 0
         @hole1_points = @hole1_points*2
         @umbrella1 = true
     else
