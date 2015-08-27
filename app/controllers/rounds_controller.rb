@@ -217,6 +217,7 @@ class RoundsController < ApplicationController
     if
         @hole1_points == 5 || @hole1_points == -5
         @hole1_points = @hole1_points*2
+        @umbrella1 = true
     else
         @hole1_points = @hole1_points
     end
@@ -277,6 +278,7 @@ class RoundsController < ApplicationController
     if
         @hole2_points == 5 || @hole2_points == -5
         @hole2_points = @hole2_points*2
+        @umbrella2 = true
     else
         @hole2_points = @hole2_points
     end
@@ -344,6 +346,7 @@ class RoundsController < ApplicationController
     if
         @hole3_points == 5 || @hole3_points == -5
         @hole3_points = @hole3_points*2
+        @umbrella3 = true
     else
         @hole3_points = @hole3_points
     end
@@ -402,6 +405,7 @@ class RoundsController < ApplicationController
     if
         @hole4_points == 5 || @hole4_points == -5
         @hole4_points = @hole4_points*2
+        @umbrella4 = true
     else
         @hole4_points = @hole4_points
     end
@@ -458,6 +462,7 @@ class RoundsController < ApplicationController
     if
         @hole5_points == 5 || @hole5_points == -5
         @hole5_points = @hole5_points*2
+        @umbrella5 = true
     else
         @hole5_points = @hole5_points
     end
@@ -517,6 +522,7 @@ class RoundsController < ApplicationController
     if
         @hole6_points == 5 || @hole6_points == -5
         @hole6_points = @hole6_points*2
+        @umbrella6 = true
     else
         @hole6_points = @hole6_points
     end
@@ -575,6 +581,7 @@ class RoundsController < ApplicationController
     if
         @hole7_points == 5 || @hole7_points == -5
         @hole7_points = @hole7_points*2
+        @umbrella7 = true
     else
         @hole7_points = @hole7_points
     end
@@ -634,6 +641,7 @@ class RoundsController < ApplicationController
     if
         @hole8_points == 5 || @hole8_points == -5
         @hole8_points = @hole8_points*2
+        @umbrella8 = true
     else
         @hole8_points = @hole8_points
     end
@@ -693,6 +701,7 @@ class RoundsController < ApplicationController
     if
         @hole9_points == 5 || @hole9_points == -5
         @hole9_points = @hole9_points*2
+        @umbrella9 = true
     else
         @hole9_points = @hole9_points
     end
@@ -750,6 +759,7 @@ class RoundsController < ApplicationController
     if
         @hole10_points == 5 || @hole10_points == -5
         @hole10_points = @hole10_points*2
+        @umbrella10 = true
     else
         @hole10_points = @hole10_points
     end
@@ -805,6 +815,7 @@ class RoundsController < ApplicationController
     if
         @hole11_points == 5 || @hole11_points == -5
         @hole11_points = @hole11_points*2
+        @umbrella11 = true
     else
         @hole11_points = @hole11_points
     end
@@ -860,6 +871,7 @@ class RoundsController < ApplicationController
     if
         @hole12_points == 5 || @hole12_points == -5
         @hole12_points = @hole12_points*2
+        @umbrella12 = true
     else
         @hole12_points = @hole12_points
     end
@@ -916,6 +928,7 @@ class RoundsController < ApplicationController
     if
         @hole13_points == 5 || @hole13_points == -5
         @hole13_points = @hole13_points*2
+        @umbrella13 = true
     else
         @hole13_points = @hole13_points
     end
@@ -971,6 +984,7 @@ class RoundsController < ApplicationController
     if
         @hole14_points == 5 || @hole14_points == -5
         @hole14_points = @hole14_points*2
+        @umbrella14 = true
     else
         @hole14_points = @hole14_points
     end
@@ -1026,6 +1040,7 @@ class RoundsController < ApplicationController
     if
         @hole15_points == 5 || @hole15_points ==-5
         @hole15_points = @hole15_points*2
+        @umbrella15 = true
     else
         @hole15_points = @hole15_points
     end
@@ -1081,6 +1096,7 @@ class RoundsController < ApplicationController
     if
         @hole16_points == 5 || @hole16_points == -5
         @hole16_points = @hole16_points*2
+        @umbrella16 = true
     else
         @hole16_points = @hole16_points
     end
@@ -1137,6 +1153,8 @@ class RoundsController < ApplicationController
     if
         @hole17_points == 5 || @hole17_points == -5
         @hole17_points = @hole17_points*2
+        @umbrella17 = true
+
     else
         @hole17_points = @hole17_points
     end
@@ -1192,6 +1210,7 @@ class RoundsController < ApplicationController
     if
         @hole18_points == 5 || @hole18_points == -5
         @hole18_points = @hole18_points*2
+        @umbrella18 = true
     else
         @hole18_points = @hole18_points
     end
