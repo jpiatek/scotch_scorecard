@@ -222,6 +222,28 @@ end
 
 # EAGLES QUADRUPLE
 
+if @p1h1 == @parh1-2
+    @t1h1_pts=@t1h1_pts.to_i*4
+else
+    @t1h1_pts=@t1h1_pts
+end
+if @p2h1 == @parh1-2
+    @t1h1_pts=@t1h1_pts.to_i*4
+else
+    @t1h1_pts=@t1h1_pts
+end
+
+if @p3h1 == @parh1-2
+    @t2h1_pts=@t2h1_pts.to_i*4
+else
+    @t2h1_pts=@t2h1_pts
+end
+if @p4h1 == @parh1-2
+    @t2h1_pts=@t2h1_pts.to_i*4
+else
+    @t2h1_pts=@t2h1_pts
+end
+
 
 # UMBRELLA
 @hole1_points= @t1h1_pts.to_i + @t2h1_pts.to_i
@@ -326,6 +348,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h2 == @parh2-2
+    @t1h2_pts=@t1h2_pts.to_i*4
+else
+    @t1h2_pts=@t1h2_pts
+end
+if @p2h2 == @parh2-2
+    @t1h2_pts=@t1h2_pts.to_i*4
+else
+    @t1h2_pts=@t1h2_pts
+end
+
+if @p3h2 == @parh2-2
+    @t2h2_pts=@t2h2_pts.to_i*4
+else
+    @t2h2_pts=@t2h2_pts
+end
+if @p4h2 == @parh2-2
+    @t2h2_pts=@t2h2_pts.to_i*4
+else
+    @t2h2_pts=@t2h2_pts
+end
 
 
 # UMBRELLA
@@ -430,6 +473,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h3 == @parh3-2
+    @t1h3_pts=@t1h3_pts.to_i*4
+else
+    @t1h3_pts=@t1h3_pts
+end
+if @p2h3 == @parh3-2
+    @t1h3_pts=@t1h3_pts.to_i*4
+else
+    @t1h3_pts=@t1h3_pts
+end
+
+if @p3h3 == @parh3-2
+    @t2h3_pts=@t2h3_pts.to_i*4
+else
+    @t2h3_pts=@t2h3_pts
+end
+if @p4h3 == @parh3-2
+    @t2h3_pts=@t2h3_pts.to_i*4
+else
+    @t2h3_pts=@t2h3_pts
+end
 
 
 # UMBRELLA
@@ -532,6 +596,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h4 == @parh4-2
+    @t1h4_pts=@t1h4_pts.to_i*4
+else
+    @t1h4_pts=@t1h4_pts
+end
+if @p2h4 == @parh4-2
+    @t1h4_pts=@t1h4_pts.to_i*4
+else
+    @t1h4_pts=@t1h4_pts
+end
+
+if @p3h4 == @parh4-2
+    @t2h4_pts=@t2h4_pts.to_i*4
+else
+    @t2h4_pts=@t2h4_pts
+end
+if @p4h4 == @parh4-2
+    @t2h4_pts=@t2h4_pts.to_i*4
+else
+    @t2h4_pts=@t2h4_pts
+end
 
 
 # UMBRELLA
@@ -635,6 +720,27 @@ end
 
 # EAGLES QUADRUPLE
 
+if @p1h5 == @parh5-2
+    @t1h5_pts=@t1h5_pts.to_i*4
+else
+    @t1h5_pts=@t1h5_pts
+end
+if @p2h5 == @parh5-2
+    @t1h5_pts=@t1h5_pts.to_i*4
+else
+    @t1h5_pts=@t1h5_pts
+end
+
+if @p3h5 == @parh5-2
+    @t2h5_pts=@t2h5_pts.to_i*4
+else
+    @t2h5_pts=@t2h5_pts
+end
+if @p4h5 == @parh5-2
+    @t2h5_pts=@t2h5_pts.to_i*4
+else
+    @t2h5_pts=@t2h5_pts
+end
 
 # UMBRELLA
 @hole5_points= @t1h5_pts.to_i + @t2h5_pts.to_i
@@ -739,6 +845,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h6 == @parh6-2
+    @t1h6_pts=@t1h6_pts.to_i*4
+else
+    @t1h6_pts=@t1h6_pts
+end
+if @p2h6 == @parh6-2
+    @t1h6_pts=@t1h6_pts.to_i*4
+else
+    @t1h6_pts=@t1h6_pts
+end
+
+if @p3h6 == @parh6-2
+    @t2h6_pts=@t2h6_pts.to_i*4
+else
+    @t2h6_pts=@t2h6_pts
+end
+if @p4h6 == @parh6-2
+    @t2h6_pts=@t2h6_pts.to_i*4
+else
+    @t2h6_pts=@t2h6_pts
+end
 
 
 # UMBRELLA
@@ -842,6 +969,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h7 == @parh7-2
+    @t1h7_pts=@t1h7_pts.to_i*4
+else
+    @t1h7_pts=@t1h7_pts
+end
+if @p2h7 == @parh7-2
+    @t1h7_pts=@t1h7_pts.to_i*4
+else
+    @t1h7_pts=@t1h7_pts
+end
+
+if @p3h7 == @parh7-2
+    @t2h7_pts=@t2h7_pts.to_i*4
+else
+    @t2h7_pts=@t2h7_pts
+end
+if @p4h7 == @parh7-2
+    @t2h7_pts=@t2h7_pts.to_i*4
+else
+    @t2h7_pts=@t2h7_pts
+end
 
 
 # UMBRELLA
@@ -947,6 +1095,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h8 == @parh8-2
+    @t1h8_pts=@t1h8_pts.to_i*4
+else
+    @t1h8_pts=@t1h8_pts
+end
+if @p2h8 == @parh8-2
+    @t1h8_pts=@t1h8_pts.to_i*4
+else
+    @t1h8_pts=@t1h8_pts
+end
+
+if @p3h8 == @parh8-2
+    @t2h8_pts=@t2h8_pts.to_i*4
+else
+    @t2h8_pts=@t2h8_pts
+end
+if @p4h8 == @parh8-2
+    @t2h8_pts=@t2h8_pts.to_i*4
+else
+    @t2h8_pts=@t2h8_pts
+end
 
 
 # UMBRELLA
@@ -1052,6 +1221,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h9 == @parh9-2
+    @t1h9_pts=@t1h9_pts.to_i*4
+else
+    @t1h9_pts=@t1h9_pts
+end
+if @p2h9 == @parh9-2
+    @t1h9_pts=@t1h9_pts.to_i*4
+else
+    @t1h9_pts=@t1h9_pts
+end
+
+if @p3h9 == @parh9-2
+    @t2h9_pts=@t2h9_pts.to_i*4
+else
+    @t2h9_pts=@t2h9_pts
+end
+if @p4h9 == @parh9-2
+    @t2h9_pts=@t2h9_pts.to_i*4
+else
+    @t2h9_pts=@t2h9_pts
+end
 
 
 # UMBRELLA
@@ -1153,6 +1343,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h10 == @parh10-2
+    @t1h10_pts=@t1h10_pts.to_i*4
+else
+    @t1h10_pts=@t1h10_pts
+end
+if @p2h10 == @parh10-2
+    @t1h10_pts=@t1h10_pts.to_i*4
+else
+    @t1h10_pts=@t1h10_pts
+end
+
+if @p3h10 == @parh10-2
+    @t2h10_pts=@t2h10_pts.to_i*4
+else
+    @t2h10_pts=@t2h10_pts
+end
+if @p4h10 == @parh10-2
+    @t2h10_pts=@t2h10_pts.to_i*4
+else
+    @t2h10_pts=@t2h10_pts
+end
 
 
 # UMBRELLA
@@ -1253,6 +1464,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h11 == @parh11-2
+    @t1h11_pts=@t1h11_pts.to_i*4
+else
+    @t1h11_pts=@t1h11_pts
+end
+if @p2h11 == @parh11-2
+    @t1h11_pts=@t1h11_pts.to_i*4
+else
+    @t1h11_pts=@t1h11_pts
+end
+
+if @p3h11 == @parh11-2
+    @t2h11_pts=@t2h11_pts.to_i*4
+else
+    @t2h11_pts=@t2h11_pts
+end
+if @p4h11 == @parh11-2
+    @t2h11_pts=@t2h11_pts.to_i*4
+else
+    @t2h11_pts=@t2h11_pts
+end
 
 
 # UMBRELLA
@@ -1353,6 +1585,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h12 == @parh12-2
+    @t1h12_pts=@t1h12_pts.to_i*4
+else
+    @t1h12_pts=@t1h12_pts
+end
+if @p2h12 == @parh12-2
+    @t1h12_pts=@t1h12_pts.to_i*4
+else
+    @t1h12_pts=@t1h12_pts
+end
+
+if @p3h12 == @parh12-2
+    @t2h12_pts=@t2h12_pts.to_i*4
+else
+    @t2h12_pts=@t2h12_pts
+end
+if @p4h12 == @parh12-2
+    @t2h12_pts=@t2h12_pts.to_i*4
+else
+    @t2h12_pts=@t2h12_pts
+end
 
 
 # UMBRELLA
@@ -1454,6 +1707,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h13 == @parh13-2
+    @t1h13_pts=@t1h13_pts.to_i*4
+else
+    @t1h13_pts=@t1h13_pts
+end
+if @p2h13 == @parh13-2
+    @t1h13_pts=@t1h13_pts.to_i*4
+else
+    @t1h13_pts=@t1h13_pts
+end
+
+if @p3h13 == @parh13-2
+    @t2h13_pts=@t2h13_pts.to_i*4
+else
+    @t2h13_pts=@t2h13_pts
+end
+if @p4h13 == @parh13-2
+    @t2h13_pts=@t2h13_pts.to_i*4
+else
+    @t2h13_pts=@t2h13_pts
+end
 
 
 # UMBRELLA
@@ -1555,6 +1829,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h14 == @parh14-2
+    @t1h14_pts=@t1h14_pts.to_i*4
+else
+    @t1h14_pts=@t1h14_pts
+end
+if @p2h14 == @parh14-2
+    @t1h14_pts=@t1h14_pts.to_i*4
+else
+    @t1h14_pts=@t1h14_pts
+end
+
+if @p3h14 == @parh14-2
+    @t2h14_pts=@t2h14_pts.to_i*4
+else
+    @t2h14_pts=@t2h14_pts
+end
+if @p4h14 == @parh14-2
+    @t2h14_pts=@t2h14_pts.to_i*4
+else
+    @t2h14_pts=@t2h14_pts
+end
 
 
 # UMBRELLA
@@ -1656,6 +1951,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h15 == @parh15-2
+    @t1h15_pts=@t1h15_pts.to_i*4
+else
+    @t1h15_pts=@t1h15_pts
+end
+if @p2h15 == @parh15-2
+    @t1h15_pts=@t1h15_pts.to_i*4
+else
+    @t1h15_pts=@t1h15_pts
+end
+
+if @p3h15 == @parh15-2
+    @t2h15_pts=@t2h15_pts.to_i*4
+else
+    @t2h15_pts=@t2h15_pts
+end
+if @p4h15 == @parh15-2
+    @t2h15_pts=@t2h15_pts.to_i*4
+else
+    @t2h15_pts=@t2h15_pts
+end
 
 
 # UMBRELLA
@@ -1757,6 +2073,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h16 == @parh16-2
+    @t1h16_pts=@t1h16_pts.to_i*4
+else
+    @t1h16_pts=@t1h16_pts
+end
+if @p2h16 == @parh16-2
+    @t1h16_pts=@t1h16_pts.to_i*4
+else
+    @t1h16_pts=@t1h16_pts
+end
+
+if @p3h16 == @parh16-2
+    @t2h16_pts=@t2h16_pts.to_i*4
+else
+    @t2h16_pts=@t2h16_pts
+end
+if @p4h16 == @parh16-2
+    @t2h16_pts=@t2h16_pts.to_i*4
+else
+    @t2h16_pts=@t2h16_pts
+end
 
 
 # UMBRELLA
@@ -1858,6 +2195,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h17 == @parh17-2
+    @t1h17_pts=@t1h17_pts.to_i*4
+else
+    @t1h17_pts=@t1h17_pts
+end
+if @p2h17 == @parh17-2
+    @t1h17_pts=@t1h17_pts.to_i*4
+else
+    @t1h17_pts=@t1h17_pts
+end
+
+if @p3h17 == @parh17-2
+    @t2h17_pts=@t2h17_pts.to_i*4
+else
+    @t2h17_pts=@t2h17_pts
+end
+if @p4h17 == @parh17-2
+    @t2h17_pts=@t2h17_pts.to_i*4
+else
+    @t2h17_pts=@t2h17_pts
+end
 
 
 # UMBRELLA
@@ -1959,6 +2317,27 @@ end
 
 
 # EAGLES QUADRUPLE
+if @p1h18 == @parh18-2
+    @t1h18_pts=@t1h18_pts.to_i*4
+else
+    @t1h18_pts=@t1h18_pts
+end
+if @p2h18 == @parh18-2
+    @t1h18_pts=@t1h18_pts.to_i*4
+else
+    @t1h18_pts=@t1h18_pts
+end
+
+if @p3h18 == @parh18-2
+    @t2h18_pts=@t2h18_pts.to_i*4
+else
+    @t2h18_pts=@t2h18_pts
+end
+if @p4h18 == @parh18-2
+    @t2h18_pts=@t2h18_pts.to_i*4
+else
+    @t2h18_pts=@t2h18_pts
+end
 
 
 # UMBRELLA
