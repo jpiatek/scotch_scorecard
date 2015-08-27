@@ -20,19 +20,19 @@ Rails.application.routes.draw do
 
   # Routes for the Hole resource:
   # CREATE
-  get "/holes/new", :controller => "holes", :action => "new"
-  post "/create_hole", :controller => "holes", :action => "create"
+  # get "/holes/new", :controller => "holes", :action => "new"
+  # post "/create_hole", :controller => "holes", :action => "create"
 
   # READ
-  get "/holes", :controller => "holes", :action => "index"
-  get "/holes/:id", :controller => "holes", :action => "show"
+  # get "/holes", :controller => "holes", :action => "index"
+  # get "/holes/:id", :controller => "holes", :action => "show"
 
   # UPDATE
   get "/holes/:id/edit", :controller => "holes", :action => "edit"
   post "/update_hole/:id", :controller => "holes", :action => "update"
 
   # DELETE
-  get "/delete_hole/:id", :controller => "holes", :action => "destroy"
+  # get "/delete_hole/:id", :controller => "holes", :action => "destroy"
 
   #------------------------------
 
