@@ -1,9 +1,25 @@
 <div class="page-header">
   <h1>
     5 Point Scotch
+
     <% if user_signed_in? %>
     <a href="/rounds/new" class="btn btn-lg btn-success">New Round</a>
   </h1>
+
+     <h3>Rules and Features</h3>
+     <ul>
+    <li>Split into two teams.  These teams remain until the match is over.</li>
+    <li>The winning team always tees off first.</li>
+    <li>The losing team can decide to roll which double that hole's points after the winning team tees off.</li>
+    <li>For each hole, points are awarded as follows:</li>
+      <ul><li>2 points for Low Man score</li>
+      <li>2 points for Low Team total</li>
+      <li>1 point  for Prox (closest to the pin)</li></ul>
+    <li>If a team wins Low Man, Low Team, and Prox for a hole, they win the umbrella and their points for that hole double.</li>
+    <li>Each birdie doubles that team's points for that hole.</li>
+    <li>Each eagle quadruples that team's points for that hole.</li>
+    <ul>
+
 </div>
 
 <div class="row">
@@ -21,7 +37,7 @@
          <th>Actions</th>
       </tr>
 
-      <% @rounds.each do |round| %>
+      <% @rounds.where(:user_id => current_user.id).each do |round| %>
       <tr>
         <td><%= round.course_name %></td>
         <td><%= round.played_on %></td>
@@ -47,8 +63,24 @@
   </div>
 </div>
      <% else %>
-            <ul></ul>
-          <ul><a href="/users/sign_in">Sign In</a></ul>
-          <ul><a href="/users/sign_up">Sign Up</a></ul>
+
+     <h3>Rules and Features</h3>
+     <ul>
+    <li>Split into two teams.  These teams remain until the match is over.</li>
+    <li>The winning team always tees off first.</li>
+    <li>The losing team can decide to roll which double that hole's points after the winning team tees off.</li>
+    <li>For each hole, points are awarded as follows:</li>
+      <ul><li>2 points for Low Man score</li>
+      <li>2 points for Low Team total</li>
+      <li>1 point  for Prox (closest to the pin)</li></ul>
+    <li>If a team wins Low Man, Low Team, and Prox for a hole, they win the umbrella and their points for that hole double.</li>
+    <li>Each birdie doubles that team's points for that hole.</li>
+    <li>Each eagle quadruples that team's points for that hole.</li>
+    <ul>
+
+
+          <h3><a href="/users/sign_in">Sign In</a></h3>
+          <h3><a href="/users/sign_up">Sign Up</a></h3>
+
 
      <% end %>
