@@ -145,49 +145,86 @@ class RoundsController < ApplicationController
     if
         @p1h1+@p2h1<@p3h1+@p4h1
         @hole1_team=2
+        @t1h1_pts=2
      elsif
         @p1h1+@p2h1>@p3h1+@p4h1
         @hole1_team=-2
+        @t2h1_pts=-2
     else
         @hole1_team=0
+        @t1h1_pts=0
+        @t2h1_pts=0
     end
 # LOW MAN
     if
         @p1h1 < @p3h1 && @p1h1 < @p4h1 || @p2h1 < @p3h1 && @p2h1 < @p4h1
         @hole1_man=2
+        @t1h1_pts=@t1h1_pts.to_i+2
     elsif
         @p3h1 < @p1h1 && @p3h1 < @p2h1 || @p4h1 < @p1h1 && @p4h1 < @p2h1
         @hole1_man=-2
+        @t2h1_pts=@t2h1_pts.to_i-2
     else
         @hole1_man=0
+        @t1h1_pts=@t1h1_pts.to_i+0
+        @t2h1_pts=@t2h1_pts.to_i+0
     end
 # PROX
     if
         @round.holes.find_by(:number => 1).ctp_player == @round.player_1
         @hole1_prox=1
+        @t1h1_pts=@t1h1_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 1).ctp_player == @round.player_2
         @hole1_prox=1
+        @t1h1_pts=@t1h1_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 1).ctp_player == @round.player_3
         @hole1_prox=-1
+        @t2h1_pts=@t2h1_pts.to_i-1
     elsif
         @round.holes.find_by(:number => 1).ctp_player == @round.player_4
         @hole1_prox=-1
+        @t2h1_pts=@t2h1_pts.to_i-1
     else
         @hole1_prox = 0
+        @t1h1_pts=@t1h1_pts.to_i+0
+        @t2h1_pts=@t2h1_pts.to_i+0
     end
 
 
-@hole1_points=@hole1_team+@hole1_man+@hole1_prox
+@hole1_points= @t1h1_pts.to_i + @t2h1_pts.to_i
 
 
 # BIRDIES DOUBLE
+if @p1h1 == @parh1-1
+    @t1h1_pts=@t1h1_pts.to_i*2
+else
+    @t1h1_pts=@t1h1_pts
+end
+if @p2h1 == @parh1-1
+    @t1h1_pts=@t1h1_pts.to_i*2
+else
+    @t1h1_pts=@t1h1_pts
+end
+
+if @p3h1 == @parh1-1
+    @t2h1_pts=@t2h1_pts.to_i*2
+else
+    @t2h1_pts=@t2h1_pts
+end
+if @p4h1 == @parh1-1
+    @t2h1_pts=@t2h1_pts.to_i*2
+else
+    @t2h1_pts=@t2h1_pts
+end
+
 
 # EAGLES QUADRUPLE
 
 
 # UMBRELLA
+@hole1_points= @t1h1_pts.to_i + @t2h1_pts.to_i
 
     if
         @hole1_man > 0 && @hole1_team > 0 && @hole1_prox > 0 || @hole1_man < 0 && @hole1_team < 0 && @hole1_prox < 0
@@ -209,47 +246,90 @@ class RoundsController < ApplicationController
 
 # hole2
 
+    # LOW TEAM
     if
         @p1h2+@p2h2<@p3h2+@p4h2
         @hole2_team=2
-    elsif
+        @t1h2_pts=2
+     elsif
         @p1h2+@p2h2>@p3h2+@p4h2
         @hole2_team=-2
+        @t2h2_pts=-2
     else
         @hole2_team=0
+        @t1h2_pts=0
+        @t2h2_pts=0
     end
-
+# LOW MAN
     if
         @p1h2 < @p3h2 && @p1h2 < @p4h2 || @p2h2 < @p3h2 && @p2h2 < @p4h2
         @hole2_man=2
+        @t1h2_pts=@t1h2_pts.to_i+2
     elsif
         @p3h2 < @p1h2 && @p3h2 < @p2h2 || @p4h2 < @p1h2 && @p4h2 < @p2h2
         @hole2_man=-2
+        @t2h2_pts=@t2h2_pts.to_i-2
     else
         @hole2_man=0
+        @t1h2_pts=@t1h2_pts.to_i+0
+        @t2h2_pts=@t2h2_pts.to_i+0
     end
-
-
-
 # PROX
     if
         @round.holes.find_by(:number => 2).ctp_player == @round.player_1
         @hole2_prox=1
+        @t1h2_pts=@t1h2_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 2).ctp_player == @round.player_2
         @hole2_prox=1
+        @t1h2_pts=@t1h2_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 2).ctp_player == @round.player_3
         @hole2_prox=-1
+        @t2h2_pts=@t2h2_pts.to_i-1
     elsif
         @round.holes.find_by(:number => 2).ctp_player == @round.player_4
         @hole2_prox=-1
+        @t2h2_pts=@t2h2_pts.to_i-1
     else
         @hole2_prox = 0
+        @t1h2_pts=@t1h2_pts.to_i+0
+        @t2h2_pts=@t2h2_pts.to_i+0
     end
 
-    @hole2_points=@hole2_team+@hole2_man+@hole2_prox
+
+@hole2_points= @t1h2_pts.to_i + @t2h2_pts.to_i
+
+
+# BIRDIES DOUBLE
+if @p1h2 == @parh2-1
+    @t1h2_pts=@t1h2_pts.to_i*2
+else
+    @t1h2_pts=@t1h2_pts
+end
+if @p2h2 == @parh2-1
+    @t1h2_pts=@t1h2_pts.to_i*2
+else
+    @t1h2_pts=@t1h2_pts
+end
+
+if @p3h2 == @parh2-1
+    @t2h2_pts=@t2h2_pts.to_i*2
+else
+    @t2h2_pts=@t2h2_pts
+end
+if @p4h2 == @parh2-1
+    @t2h2_pts=@t2h2_pts.to_i*2
+else
+    @t2h2_pts=@t2h2_pts
+end
+
+
+# EAGLES QUADRUPLE
+
+
 # UMBRELLA
+@hole2_points= @t1h2_pts.to_i + @t2h2_pts.to_i
     if
         @hole2_points == 5 || @hole2_points == -5
         @hole2_points = @hole2_points*2
@@ -261,7 +341,7 @@ class RoundsController < ApplicationController
 # ROLL
     if
          @round.holes.find_by(:number => 2).roll == true
-         @hole2_points = @hole2_points*2
+         @hole2_points = @hole2_points.to_i*2
     else
         @hole2_points = @hole2_points
     end
@@ -269,55 +349,90 @@ class RoundsController < ApplicationController
 
 # hole3
 
+       # LOW TEAM
     if
         @p1h3+@p2h3<@p3h3+@p4h3
         @hole3_team=2
-    elsif
+        @t1h3_pts=2
+     elsif
         @p1h3+@p2h3>@p3h3+@p4h3
         @hole3_team=-2
+        @t2h3_pts=-2
     else
         @hole3_team=0
+        @t1h3_pts=0
+        @t2h3_pts=0
     end
-
+# LOW MAN
     if
         @p1h3 < @p3h3 && @p1h3 < @p4h3 || @p2h3 < @p3h3 && @p2h3 < @p4h3
         @hole3_man=2
+        @t1h3_pts=@t1h3_pts.to_i+2
     elsif
         @p3h3 < @p1h3 && @p3h3 < @p2h3 || @p4h3 < @p1h3 && @p4h3 < @p2h3
         @hole3_man=-2
+        @t2h3_pts=@t2h3_pts.to_i-2
     else
         @hole3_man=0
+        @t1h3_pts=@t1h3_pts.to_i+0
+        @t2h3_pts=@t2h3_pts.to_i+0
     end
-
-
 # PROX
     if
         @round.holes.find_by(:number => 3).ctp_player == @round.player_1
         @hole3_prox=1
+        @t1h3_pts=@t1h3_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 3).ctp_player == @round.player_2
         @hole3_prox=1
+        @t1h3_pts=@t1h3_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 3).ctp_player == @round.player_3
         @hole3_prox=-1
+        @t2h3_pts=@t2h3_pts.to_i-1
     elsif
         @round.holes.find_by(:number => 3).ctp_player == @round.player_4
         @hole3_prox=-1
+        @t2h3_pts=@t2h3_pts.to_i-1
     else
         @hole3_prox = 0
+        @t1h3_pts=@t1h3_pts.to_i+0
+        @t2h3_pts=@t2h3_pts.to_i+0
     end
 
-    @hole3_points=@hole3_team+@hole3_man+@hole3_prox
 
-    if
-        @hole3_points == 5
-        @hole3_points = 10
-    else
-        @hole3_points = @hole3_points
-    end
+@hole3_points= @t1h3_pts.to_i + @t2h3_pts.to_i
 
-    @hole3_points=@hole3_team+@hole3_man+@hole3_prox
+
+# BIRDIES DOUBLE
+if @p1h3 == @parh3-1
+    @t1h3_pts=@t1h3_pts.to_i*2
+else
+    @t1h3_pts=@t1h3_pts
+end
+if @p2h3 == @parh3-1
+    @t1h3_pts=@t1h3_pts.to_i*2
+else
+    @t1h3_pts=@t1h3_pts
+end
+
+if @p3h3 == @parh3-1
+    @t2h3_pts=@t2h3_pts.to_i*2
+else
+    @t2h3_pts=@t2h3_pts
+end
+if @p4h3 == @parh3-1
+    @t2h3_pts=@t2h3_pts.to_i*2
+else
+    @t2h3_pts=@t2h3_pts
+end
+
+
+# EAGLES QUADRUPLE
+
+
 # UMBRELLA
+@hole3_points= @t1h3_pts.to_i + @t2h3_pts.to_i
     if
         @hole3_points == 5 || @hole3_points == -5
         @hole3_points = @hole3_points*2
@@ -336,47 +451,90 @@ class RoundsController < ApplicationController
 
 # hole4
 
+   # LOW TEAM
     if
         @p1h4+@p2h4<@p3h4+@p4h4
         @hole4_team=2
-    elsif
+        @t1h4_pts=2
+     elsif
         @p1h4+@p2h4>@p3h4+@p4h4
         @hole4_team=-2
+        @t2h4_pts=-2
     else
         @hole4_team=0
+        @t1h4_pts=0
+        @t2h4_pts=0
     end
-
+# LOW MAN
     if
         @p1h4 < @p3h4 && @p1h4 < @p4h4 || @p2h4 < @p3h4 && @p2h4 < @p4h4
         @hole4_man=2
+        @t1h4_pts=@t1h4_pts.to_i+2
     elsif
         @p3h4 < @p1h4 && @p3h4 < @p2h4 || @p4h4 < @p1h4 && @p4h4 < @p2h4
         @hole4_man=-2
+        @t2h4_pts=@t2h4_pts.to_i-2
     else
         @hole4_man=0
+        @t1h4_pts=@t1h4_pts.to_i+0
+        @t2h4_pts=@t2h4_pts.to_i+0
     end
-
-
 # PROX
     if
         @round.holes.find_by(:number => 4).ctp_player == @round.player_1
         @hole4_prox=1
+        @t1h4_pts=@t1h4_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 4).ctp_player == @round.player_2
         @hole4_prox=1
+        @t1h4_pts=@t1h4_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 4).ctp_player == @round.player_3
         @hole4_prox=-1
+        @t2h4_pts=@t2h4_pts.to_i-1
     elsif
         @round.holes.find_by(:number => 4).ctp_player == @round.player_4
         @hole4_prox=-1
+        @t2h4_pts=@t2h4_pts.to_i-1
     else
         @hole4_prox = 0
+        @t1h4_pts=@t1h4_pts.to_i+0
+        @t2h4_pts=@t2h4_pts.to_i+0
     end
 
-    @hole4_points=@hole4_team+@hole4_man+@hole4_prox
+
+@hole4_points= @t1h4_pts.to_i + @t2h4_pts.to_i
+
+
+# BIRDIES DOUBLE
+if @p1h4 == @parh4-1
+    @t1h4_pts=@t1h4_pts.to_i*2
+else
+    @t1h4_pts=@t1h4_pts
+end
+if @p2h4 == @parh4-1
+    @t1h4_pts=@t1h4_pts.to_i*2
+else
+    @t1h4_pts=@t1h4_pts
+end
+
+if @p3h4 == @parh4-1
+    @t2h4_pts=@t2h4_pts.to_i*2
+else
+    @t2h4_pts=@t2h4_pts
+end
+if @p4h4 == @parh4-1
+    @t2h4_pts=@t2h4_pts.to_i*2
+else
+    @t2h4_pts=@t2h4_pts
+end
+
+
+# EAGLES QUADRUPLE
+
 
 # UMBRELLA
+@hole4_points= @t1h4_pts.to_i + @t2h4_pts.to_i
     if
         @hole4_points == 5 || @hole4_points == -5
         @hole4_points = @hole4_points*2
@@ -395,45 +553,90 @@ class RoundsController < ApplicationController
 
 # hole5
 
+      # LOW TEAM
     if
         @p1h5+@p2h5<@p3h5+@p4h5
         @hole5_team=2
-    elsif
+        @t1h5_pts=2
+     elsif
         @p1h5+@p2h5>@p3h5+@p4h5
         @hole5_team=-2
+        @t2h5_pts=-2
     else
         @hole5_team=0
+        @t1h5_pts=0
+        @t2h5_pts=0
     end
-
+# LOW MAN
     if
         @p1h5 < @p3h5 && @p1h5 < @p4h5 || @p2h5 < @p3h5 && @p2h5 < @p4h5
         @hole5_man=2
+        @t1h5_pts=@t1h5_pts.to_i+2
     elsif
         @p3h5 < @p1h5 && @p3h5 < @p2h5 || @p4h5 < @p1h5 && @p4h5 < @p2h5
         @hole5_man=-2
+        @t2h5_pts=@t2h5_pts.to_i-2
     else
         @hole5_man=0
+        @t1h5_pts=@t1h5_pts.to_i+0
+        @t2h5_pts=@t2h5_pts.to_i+0
     end
-
 # PROX
     if
         @round.holes.find_by(:number => 5).ctp_player == @round.player_1
         @hole5_prox=1
+        @t1h5_pts=@t1h5_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 5).ctp_player == @round.player_2
         @hole5_prox=1
+        @t1h5_pts=@t1h5_pts.to_i+1
     elsif
         @round.holes.find_by(:number => 5).ctp_player == @round.player_3
         @hole5_prox=-1
+        @t2h5_pts=@t2h5_pts.to_i-1
     elsif
         @round.holes.find_by(:number => 5).ctp_player == @round.player_4
         @hole5_prox=-1
+        @t2h5_pts=@t2h5_pts.to_i-1
     else
         @hole5_prox = 0
+        @t1h5_pts=@t1h5_pts.to_i+0
+        @t2h5_pts=@t2h5_pts.to_i+0
     end
 
-    @hole5_points=@hole5_team+@hole5_man+@hole5_prox
+
+@hole5_points= @t1h5_pts.to_i + @t2h5_pts.to_i
+
+
+# BIRDIES DOUBLE
+if @p1h5 == @parh5-1
+    @t1h5_pts=@t1h5_pts.to_i*2
+else
+    @t1h5_pts=@t1h5_pts
+end
+if @p2h5 == @parh5-1
+    @t1h5_pts=@t1h5_pts.to_i*2
+else
+    @t1h5_pts=@t1h5_pts
+end
+
+if @p3h5 == @parh5-1
+    @t2h5_pts=@t2h5_pts.to_i*2
+else
+    @t2h5_pts=@t2h5_pts
+end
+if @p4h5 == @parh5-1
+    @t2h5_pts=@t2h5_pts.to_i*2
+else
+    @t2h5_pts=@t2h5_pts
+end
+
+
+# EAGLES QUADRUPLE
+
+
 # UMBRELLA
+@hole5_points= @t1h5_pts.to_i + @t2h5_pts.to_i
     if
         @hole5_points == 5 || @hole5_points == -5
         @hole5_points = @hole5_points*2
