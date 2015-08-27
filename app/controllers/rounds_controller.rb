@@ -177,6 +177,10 @@ class RoundsController < ApplicationController
     else
         @hole1_prox = 0
     end
+
+
+    @hole1_points=@hole1_team+@hole1_man+@hole1_prox
+
 # BIRDIES DOUBLE
 #     if  @p1h1 || @p2h1 == @parh1-1 && @hole1_man == 2
 #         @hole1_man = 4
@@ -209,15 +213,13 @@ class RoundsController < ApplicationController
 
 
 # UMBRELLA
-    @hole1_points=@hole1_team+@hole1_man+@hole1_prox
+
     if
-        @hole1_points == 5
-        @hole1_points = 10
+        @hole1_points == 5 || @hole1_points == -5
+        @hole1_points = @hole1_points*2
     else
         @hole1_points = @hole1_points
     end
-
-
 
 # ROLL
     if
@@ -271,14 +273,15 @@ class RoundsController < ApplicationController
     end
 
     @hole2_points=@hole2_team+@hole2_man+@hole2_prox
-
+# UMBRELLA
     if
-        @hole2_points == 5
-        @hole2_points = 10
+        @hole2_points == 5 || @hole2_points == -5
+        @hole2_points = @hole2_points*2
     else
         @hole2_points = @hole2_points
     end
 
+# ROLL
     if
          @round.holes.find_by(:number => 2).roll == true
          @hole2_points = @hole2_points*2
@@ -336,6 +339,16 @@ class RoundsController < ApplicationController
         @hole3_points = @hole3_points
     end
 
+    @hole3_points=@hole3_team+@hole3_man+@hole3_prox
+# UMBRELLA
+    if
+        @hole3_points == 5 || @hole3_points == -5
+        @hole3_points = @hole3_points*2
+    else
+        @hole3_points = @hole3_points
+    end
+
+# ROLL
     if
          @round.holes.find_by(:number => 3).roll == true
          @hole3_points = @hole3_points*2
@@ -385,13 +398,15 @@ class RoundsController < ApplicationController
 
     @hole4_points=@hole4_team+@hole4_man+@hole4_prox
 
+# UMBRELLA
     if
-        @hole4_points == 5
-        @hole4_points = 10
+        @hole4_points == 5 || @hole4_points == -5
+        @hole4_points = @hole4_points*2
     else
         @hole4_points = @hole4_points
     end
 
+# ROLL
     if
          @round.holes.find_by(:number => 4).roll == true
          @hole4_points = @hole4_points*2
@@ -439,13 +454,15 @@ class RoundsController < ApplicationController
     end
 
     @hole5_points=@hole5_team+@hole5_man+@hole5_prox
-
+# UMBRELLA
     if
-        @hole5_points == 5
-        @hole5_points = 10
+        @hole5_points == 5 || @hole5_points == -5
+        @hole5_points = @hole5_points*2
     else
         @hole5_points = @hole5_points
     end
+
+# ROLL
 
     if
          @round.holes.find_by(:number => 5).roll == true
@@ -496,13 +513,15 @@ class RoundsController < ApplicationController
 
     @hole6_points=@hole6_team+@hole6_man+@hole6_prox
 
+# UMBRELLA
     if
-        @hole6_points == 5
-        @hole6_points = 10
+        @hole6_points == 5 || @hole6_points == -5
+        @hole6_points = @hole6_points*2
     else
         @hole6_points = @hole6_points
     end
 
+# ROLL
     if
          @round.holes.find_by(:number => 6).roll == true
          @hole6_points = @hole6_points*2
@@ -552,12 +571,15 @@ class RoundsController < ApplicationController
 
     @hole7_points=@hole7_team+@hole7_man+@hole7_prox
 
+# UMBRELLA
     if
-        @hole7_points == 5
-        @hole7_points = 10
+        @hole7_points == 5 || @hole7_points == -5
+        @hole7_points = @hole7_points*2
     else
         @hole7_points = @hole7_points
     end
+
+# ROLL
     if
          @round.holes.find_by(:number => 7).roll == true
          @hole7_points = @hole7_points*2
@@ -608,12 +630,15 @@ class RoundsController < ApplicationController
 
     @hole8_points=@hole8_team+@hole8_man+@hole8_prox
 
+# UMBRELLA
     if
-        @hole8_points == 5
-        @hole8_points = 10
+        @hole8_points == 5 || @hole8_points == -5
+        @hole8_points = @hole8_points*2
     else
         @hole8_points = @hole8_points
     end
+
+# ROLL
     if
          @round.holes.find_by(:number => 8).roll == true
          @hole8_points = @hole8_points*2
@@ -664,12 +689,14 @@ class RoundsController < ApplicationController
 
     @hole9_points=@hole9_team+@hole9_man+@hole9_prox
 
+# UMBRELLA
     if
-        @hole9_points == 5
-        @hole9_points = 10
+        @hole9_points == 5 || @hole9_points == -5
+        @hole9_points = @hole9_points*2
     else
         @hole9_points = @hole9_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 9).roll == true
          @hole9_points = @hole9_points*2
@@ -719,12 +746,14 @@ class RoundsController < ApplicationController
 
     @hole10_points=@hole10_team+@hole10_man+@hole10_prox
 
+# UMBRELLA
     if
-        @hole10_points == 5
-        @hole10_points = 10
+        @hole10_points == 5 || @hole10_points == -5
+        @hole10_points = @hole10_points*2
     else
         @hole10_points = @hole10_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 10).roll == true
          @hole10_points = @hole10_points*2
@@ -772,12 +801,14 @@ class RoundsController < ApplicationController
 
     @hole11_points=@hole11_team+@hole11_man+@hole11_prox
 
+# UMBRELLA
     if
-        @hole11_points == 5
-        @hole11_points = 10
+        @hole11_points == 5 || @hole11_points == -5
+        @hole11_points = @hole11_points*2
     else
         @hole11_points = @hole11_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 11).roll == true
          @hole11_points = @hole11_points*2
@@ -825,12 +856,14 @@ class RoundsController < ApplicationController
 
     @hole12_points=@hole12_team+@hole12_man+@hole12_prox
 
+# UMBRELLA
     if
-        @hole12_points == 5
-        @hole12_points = 10
+        @hole12_points == 5 || @hole12_points == -5
+        @hole12_points = @hole12_points*2
     else
         @hole12_points = @hole12_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 12).roll == true
          @hole12_points = @hole12_points*2
@@ -879,12 +912,14 @@ class RoundsController < ApplicationController
 
     @hole13_points=@hole13_team+@hole13_man+@hole13_prox
 
+# UMBRELLA
     if
-        @hole13_points == 5
-        @hole13_points = 10
+        @hole13_points == 5 || @hole13_points == -5
+        @hole13_points = @hole13_points*2
     else
         @hole13_points = @hole13_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 13).roll == true
          @hole13_points = @hole13_points*2
@@ -932,12 +967,14 @@ class RoundsController < ApplicationController
 
     @hole14_points=@hole14_team+@hole14_man+@hole14_prox
 
+# UMBRELLA
     if
-        @hole14_points == 5
-        @hole14_points = 10
+        @hole14_points == 5 || @hole14_points == -5
+        @hole14_points = @hole14_points*2
     else
         @hole14_points = @hole14_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 14).roll == true
          @hole14_points = @hole14_points*2
@@ -985,13 +1022,14 @@ class RoundsController < ApplicationController
     end
 
     @hole15_points=@hole15_team+@hole15_man+@hole15_prox
-
+# UMBRELLA
     if
-        @hole15_points == 5
-        @hole15_points = 10
+        @hole15_points == 5 || @hole15_points ==-5
+        @hole15_points = @hole15_points*2
     else
         @hole15_points = @hole15_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 15).roll == true
          @hole15_points = @hole15_points*2
@@ -1039,12 +1077,14 @@ class RoundsController < ApplicationController
 
     @hole16_points=@hole16_team+@hole16_man+@hole16_prox
 
+# UMBRELLA
     if
-        @hole16_points == 5
-        @hole16_points = 10
+        @hole16_points == 5 || @hole16_points == -5
+        @hole16_points = @hole16_points*2
     else
         @hole16_points = @hole16_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 16).roll == true
          @hole16_points = @hole16_points*2
@@ -1093,12 +1133,14 @@ class RoundsController < ApplicationController
 
     @hole17_points=@hole17_team+@hole17_man+@hole17_prox
 
+# UMBRELLA
     if
-        @hole17_points == 5
-        @hole17_points = 10
+        @hole17_points == 5 || @hole17_points == -5
+        @hole17_points = @hole17_points*2
     else
         @hole17_points = @hole17_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 17).roll == true
          @hole17_points = @hole17_points*2
@@ -1146,12 +1188,14 @@ class RoundsController < ApplicationController
 
     @hole18_points=@hole18_team+@hole18_man+@hole18_prox
 
+# UMBRELLA
     if
-        @hole18_points == 5
-        @hole18_points = 10
+        @hole18_points == 5 || @hole18_points == -5
+        @hole18_points = @hole18_points*2
     else
         @hole18_points = @hole18_points
     end
+#ROLL
     if
          @round.holes.find_by(:number => 18).roll == true
          @hole18_points = @hole18_points*2
