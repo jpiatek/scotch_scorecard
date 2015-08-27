@@ -18,12 +18,18 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for course_name -->
-      <div class="form-group">
-        <label for="course_name" class="control-label">
+
+   <div class="form-group">
+
+         <div>
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= @round.user_id %>">
+      </div>
+
+
+ <label for="course_name" class="control-label">
           Course name
         </label>
-
+      <div>
         <input type="text" id="course_name" name="course_name" placeholder="Course name" class="form-control" value="<%= @round.course_name %>">
       </div>
 

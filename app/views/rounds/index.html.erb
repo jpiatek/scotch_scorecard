@@ -37,7 +37,7 @@
          <th>Actions</th>
       </tr>
 
-      <% @rounds.where(:user_id => current_user.id).each do |round| %>
+      <% @rounds.each do |round| %>
       <tr>
         <td><%= round.course_name %></td>
         <td><%= round.played_on %></td>
