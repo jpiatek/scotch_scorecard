@@ -55,9 +55,13 @@
 
 
    <div class="btn-group btn-group-justified">
+
+    <% if round.user_id == current_user.id  %>
       <a href="/rounds/<%= @round.id %>/edit" class="btn btn-success">
         Edit Match Set Up
       </a>
+       <% else %>
+       <% end %>
       </div>
      <!--   <div class="btn-group btn-group-justified">
         <a href="/holes/<%= @round.holes.find_by(:number=>1).id%>/edit" class="btn btn-warning">
