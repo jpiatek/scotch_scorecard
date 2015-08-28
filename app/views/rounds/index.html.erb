@@ -51,7 +51,10 @@
 
         <td>
           <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show Round</a>
+          <% if round.user_id == current_user.id  %>
           <a href="/rounds/<%= round.id %>/edit" class="btn btn-warning">Edit Players</a>
+          <% else %>
+          <% end %>
           <% if round.user_id == current_user.id  %>
           <a href="/delete_round/<%= round.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
           <% else %>
