@@ -468,6 +468,26 @@
      </td>
       </tr>
 
+
+
+      <tr>
+        <th>Hole</th>
+        <th>Par</th>
+        <th><%= @round.player_1%></th>
+        <th><%= @round.player_2%></th>
+        <th><%= @round.player_3%></th>
+        <th><%= @round.player_4%></th>
+        <th>Low Team</th>
+        <th>Low Man</th>
+        <th>Prox</th>
+        <th>Roll</th>
+        <th>Total Points</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+
+
+
    <tr>
         <form action="/update_hole/<%= @round.holes.find_by(:number => 10).id %>" method="post">
 
