@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # READ
   root 'rounds#index'
   get "/rounds", :controller => "rounds", :action => "index"
+  get "/rounds/all", :controller => "rounds", :action => "all"
   get "/rounds/:id", :controller => "rounds", :action => "show"
 
   # UPDATE

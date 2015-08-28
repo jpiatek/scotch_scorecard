@@ -3,6 +3,14 @@ class RoundsController < ApplicationController
     @rounds = Round.all
   end
 
+  def my
+    @rounds = Round.all
+  end
+
+  def all
+    @rounds = Round.all
+  end
+
   def show
     @round = Round.find(params[:id])
     @holes = Hole.all
