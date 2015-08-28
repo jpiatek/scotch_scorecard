@@ -17,20 +17,30 @@
       <th>Front</th>
       <th>Back</th>
       <th>Total</th>
+
       </tr>
+
+      <tr>
+      <th>Par</th>
+      <th><%=@front9_par%></th>
+      <th><%=@back9_par%></th>
+      <th><%=@course_par%></th>
+      </tr>
+
 
       <tr>
       <td><%= @round.player_1 %></td>
       <td><%=@p1_front%></td>
       <td><%=@p1_back%></td>
       <td><%=@p1_total%></td>
-      </tr>
+
 
       <tr>
       <td><%= @round.player_2 %></td>
       <td><%=@p2_front%></td>
       <td><%=@p2_back%></td>
       <td><%=@p2_total%></td>
+
 
       </tr>
 
@@ -47,7 +57,9 @@
       <td><%=@p4_front%></td>
       <td><%=@p4_back%></td>
       <td><%=@p4_total%></td>
+
       </tr>
+
   </div>
   </div>
  </table>
@@ -100,11 +112,12 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 1).number %>">
          1</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 1).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 1).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 1).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 1).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 1).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 1).p4_score %>"></td>
+
+        <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>1).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>1).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>1).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>1).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>1).p4_score) %></td>
         <td><%=@hole1_team%> </td>
         <td><%=@hole1_man%></td>
             <td>
@@ -142,11 +155,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 2).number %>">
          2</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 2).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 2).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 2).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 2).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 2).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 2).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>2).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>2).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>2).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>2).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>2).p4_score) %></td>
         <td><%=@hole2_team%></td>
         <td><%=@hole2_man%></td>
         <td>
@@ -183,11 +196,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 3).number %>">
          3</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 3).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 3).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 3).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 3).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 3).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 3).p4_score %>"></td>
+        <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>3).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>3).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>3).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>3).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>3).p4_score) %></td>
         <td><%=@hole3_team%></td>
         <td><%=@hole3_man%></td>
         <td>
@@ -223,11 +236,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 4).number %>">
          4</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 4).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 4).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 4).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 4).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 4).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 4).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>4).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>4).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>4).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>4).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>4).p4_score) %></td>
         <td><%=@hole4_team%></td>
         <td><%=@hole4_man%></td>
         <td>
@@ -263,11 +276,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 5).number %>">
          5</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 5).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 5).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 5).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 5).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 5).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 5).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>5).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>5).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>5).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>5).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>5).p4_score) %></td>
         <td><%=@hole5_team%></td>
         <td><%=@hole5_man%></td>
         <td>
@@ -303,11 +316,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 6).number %>">
          6</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 6).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 6).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 6).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 6).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 6).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 6).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>6).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>6).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>6).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>6).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>6).p4_score) %></td>
         <td><%=@hole6_team%></td>
         <td><%=@hole6_man%></td>
         <td>
@@ -343,11 +356,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 7).number %>">
          7</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 7).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 7).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 7).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 7).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 7).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 7).p4_score %>"></td>
+        <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>7).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>7).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>7).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>7).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>7).p4_score) %></td>
         <td><%=@hole7_team%></td>
         <td><%=@hole7_man%></td>
         <td>
@@ -384,11 +397,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 8).number %>">
          8</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 8).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 8).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 8).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 8).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 8).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 8).p4_score %>"></td>
+        <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>8).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>8).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>8).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>8).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>8).p4_score) %></td>
         <td><%=@hole8_team%></td>
         <td><%=@hole8_man%></td>
         <td>
@@ -424,11 +437,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 9).number %>">
          9</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 9).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 9).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 9).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 9).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 9).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 9).p4_score %>"></td>
+        <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>9).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>9).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>9).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>9).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>9).p4_score) %></td>
         <td><%=@hole9_team%></td>
         <td><%=@hole9_man%></td>
         <td>
@@ -464,11 +477,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 10).number %>">
          10</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 10).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 10).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 10).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 10).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 10).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 10).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>10).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>10).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>10).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>10).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>10).p4_score) %></td>
         <td><%=@hole10_team%></td>
         <td><%=@hole10_man%></td>
         <td>
@@ -504,11 +517,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 11).number %>">
          11</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 11).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 11).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 11).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 11).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 11).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 11).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>11).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>11).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>11).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>11).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>11).p4_score) %></td>
         <td><%=@hole11_team%></td>
         <td><%=@hole11_man%></td>
         <td>
@@ -544,11 +557,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 12).number %>">
          12</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 12).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 12).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 12).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 12).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 12).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 12).p4_score %>"></td>
+      <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>12).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>12).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>12).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>12).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>12).p4_score) %></td>
         <td><%=@hole12_team%></td>
         <td><%=@hole12_man%></td>
         <td>
@@ -584,11 +597,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 13).number %>">
          13</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 13).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 13).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 13).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 13).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 13).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 13).p4_score %>"></td>
+     <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>13).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>13).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>13).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>13).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>13).p4_score) %></td>
         <td><%=@hole13_team%></td>
         <td><%=@hole13_man%></td>
         <td>
@@ -625,11 +638,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 14).number %>">
          14</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 14).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 14).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 14).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 14).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 14).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 14).p4_score %>"></td>
+      <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>14).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>14).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>14).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>14).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>14).p4_score) %></td>
         <td><%=@hole14_team%></td>
         <td><%=@hole14_man%></td>
         <td>
@@ -666,11 +679,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 15).number %>">
          15</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 15).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 15).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 15).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 15).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 15).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 15).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>15).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>15).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>15).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>15).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>15).p4_score) %></td>
         <td><%=@hole15_team%></td>
         <td><%=@hole15_man%></td>
         <td>
@@ -707,11 +720,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 16).number %>">
          16</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 16).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 16).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 16).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 16).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 16).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 16).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>16).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>16).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>16).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>16).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>16).p4_score) %></td>
         <td><%=@hole16_team%></td>
         <td><%=@hole16_man%></td>
         <td>
@@ -747,11 +760,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 17).number %>">
          17</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 17).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 17).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 17).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 17).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 17).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 17).p4_score %>"></td>
+     <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>17).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>17).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>17).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>17).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>17).p4_score) %></td>
         <td><%=@hole17_team%></td>
         <td><%=@hole17_man%></td>
         <td>
@@ -788,11 +801,11 @@
          <td><input type="hidden" name="number" value="<%= @round.holes.find_by(:number => 18).number %>">
          18</td>
          <input type="hidden" name="round_id" value="<%= @round.holes.find_by(:number => 18).round_id %>">
-        <td><input type="text" size="2" id="par" name="par" placeholder="Par" value="<%= @round.holes.find_by(:number => 18).par %>"></td>
-        <td><input type="text" size="2" id="p1_score" name="p1_score" placeholder="<%=@round.player_1%>" value="<%= @round.holes.find_by(:number => 18).p1_score %>"></td>
-        <td><input type="text" size="2" id="p2_score" name="p2_score" placeholder="<%=@round.player_2%>" value="<%= @round.holes.find_by(:number => 18).p2_score %>"></td>
-        <td><input type="text" size="2" id="p3_score" name="p3_score" placeholder="<%=@round.player_3%>" value="<%= @round.holes.find_by(:number => 18).p3_score %>"></td>
-        <td><input type="text" size="2" id="p4_score" name="p4_score" placeholder="<%=@round.player_4%>" value="<%= @round.holes.find_by(:number => 18).p4_score %>"></td>
+         <td><%= select_tag :par, options_for_select(["3", "4", "5"], @round.holes.find_by(:number=>18).par) %></td>
+        <td><%= select_tag :p1_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>18).p1_score) %></td>
+        <td><%= select_tag :p2_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>18).p2_score) %></td>
+        <td><%= select_tag :p3_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>18).p3_score) %></td>
+        <td><%= select_tag :p4_score, options_for_select(["0","1","2","3","4","5","6","7","8","9"], @round.holes.find_by(:number=>18).p4_score) %></td>
         <td><%=@hole18_team%></td>
         <td><%=@hole18_man%></td>
         <td>

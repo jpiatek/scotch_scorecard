@@ -137,7 +137,8 @@ class RoundsController < ApplicationController
     @parh18= @round.holes.find_by(:number => 18).par
 
     @course_par= @parh1+@parh2+@parh3+@parh4+@parh5+@parh6+@parh7+@parh8+@parh9+@parh10+ @parh11+ @parh12+ @parh13+ @parh14+ @parh15+ @parh16+ @parh17+ @parh18
-
+    @front9_par= @parh1+@parh2+@parh3+@parh4+@parh5+@parh6+@parh7+@parh8+@parh9
+    @back9_par= @parh10+ @parh11+@parh12+@parh13+@parh14+@parh15+@parh16+@parh17+@parh18
  # Points logic
 
 # hole1
