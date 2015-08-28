@@ -375,7 +375,7 @@ end
 @hole2_points= @t1h2_pts.to_i + @t2h2_pts.to_i
     if
         @hole2_man > 0 && @hole2_team > 0 && @hole2_prox > 0 || @hole2_man < 0 && @hole2_team < 0 && @hole2_prox < 0
-        @hole2_points = @hole1_points*2
+        @hole2_points = @hole2_points*2
         @umbrella2 = true
     else
         @hole2_points = @hole2_points
