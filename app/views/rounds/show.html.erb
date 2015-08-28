@@ -98,7 +98,11 @@
         <th>Prox</th>
         <th>Roll</th>
         <th>Total Points</th>
+        <% if @round.user_id == current_user.id  %>
         <th>Action</th>
+        <% else %>
+        <% end %>
+
         <th></th>
       </tr>
    <tr>
@@ -131,9 +135,12 @@
       </td>
         <td><%=@hole1_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
               <button class="btn btn-primary">
               Update Hole 1
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella1==true%>
@@ -173,9 +180,12 @@
       </td>
         <td><%=@hole2_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 2
               </button>
+     <% else %>
+      <% end %>
      </form>
           <td>
      <% if @umbrella2==true%>
@@ -214,9 +224,12 @@
       </td>
         <td><%=@hole3_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 3
               </button>
+     <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella3==true%>
@@ -254,9 +267,12 @@
       </td>
         <td><%=@hole4_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 4
               </button>
+       <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella4==true%>
@@ -294,9 +310,12 @@
       </td>
         <td><%=@hole5_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 5
               </button>
+       <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella5==true%>
@@ -334,9 +353,12 @@
       </td>
         <td><%=@hole6_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 6
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella6==true%>
@@ -374,9 +396,12 @@
       </td>
         <td><%=@hole7_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 7
               </button>
+       <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella7==true%>
@@ -415,9 +440,12 @@
       </td>
         <td><%=@hole8_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 8
               </button>
+       <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella8==true%>
@@ -455,9 +483,12 @@
       </td>
         <td><%=@hole9_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 9
               </button>
+     <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella9==true%>
@@ -481,7 +512,10 @@
         <th>Prox</th>
         <th>Roll</th>
         <th>Total Points</th>
+        <% if @round.user_id == current_user.id  %>
         <th>Action</th>
+        <% else %>
+        <% end %>
         <th></th>
       </tr>
 
@@ -514,9 +548,12 @@
       </td>
         <td><%=@hole10_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 10
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella10==true%>
@@ -554,9 +591,12 @@
       </td>
         <td><%=@hole11_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 11
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella11==true%>
@@ -594,9 +634,12 @@
       </td>
         <td><%=@hole12_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 12
               </button>
+    <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella12==true%>
@@ -634,9 +677,12 @@
       </td>
         <td><%=@hole13_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 13
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella13==true%>
@@ -675,9 +721,12 @@
       </td>
         <td><%=@hole14_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 14
               </button>
+     <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella14==true%>
@@ -716,9 +765,12 @@
       </td>
         <td><%=@hole15_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 15
               </button>
+     <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella15==true%>
@@ -757,9 +809,12 @@
       </td>
         <td><%=@hole16_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 16
               </button>
+         <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella16==true%>
@@ -797,9 +852,12 @@
       </td>
         <td><%=@hole17_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 17
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella17==true%>
@@ -838,9 +896,12 @@
       </td>
         <td><%=@hole18_points%></td>
         <td>
+         <% if @round.user_id == current_user.id  %>
         <button class="btn btn-primary">
               Update Hole 18
               </button>
+      <% else %>
+      <% end %>
      </form>
      <td>
      <% if @umbrella18==true%>
